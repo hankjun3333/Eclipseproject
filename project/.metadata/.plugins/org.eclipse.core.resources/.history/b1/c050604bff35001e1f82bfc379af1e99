@@ -31,7 +31,6 @@ public class cal extends HttpServlet {
 		String result = in.test2(Integer.valueOf(a),Integer.parseInt(b)); //결과값
 		
 		//Controller 에서 View로 가상의 객체명으로 전달 setAttribute 가상 객체 이름 total생성
-		
 		request.setAttribute("total", result); 
 		
 		String username = "홍길동";
