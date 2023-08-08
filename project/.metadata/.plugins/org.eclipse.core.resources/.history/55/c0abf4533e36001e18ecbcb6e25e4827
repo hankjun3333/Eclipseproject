@@ -26,11 +26,11 @@ public class index {
 	}
 	
 	//컨트롤러에서 정수형 변환 모듈에서 정수로 받고 다시 string으로 리턴하는 방법임
-	public String test2(int a, int b) {
+	public String test2(String a, String b) {
 		this.sum = a + b;
 		//강제 형변환 X (casting변환 O) //int dd =(int)d; 이런거
 		//실무에선 캐스팅 이라고 부름
-		return String.valueOf(this.sum);
+		return (this.sum);
 	}
 }
 
