@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>example1</title>
+</head>
+<body>
+점수 : <input type="text" name="no1"> 입니다
+점수 : <input type="text" name="no2"> 입니다
+점수 : <input type="text" name="no3"> 입니다
+</body>
+</html>

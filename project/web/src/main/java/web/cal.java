@@ -28,7 +28,7 @@ public class cal extends HttpServlet {
 		
 		
 		//문자값을 숫자로 변환 후 - > Module로 값을 전달 후(계산등) 결과값을 문자로 받는 형태 --controller에서 변환
-		String result = in.test2(Integer.parseInt(a),Integer.parseInt(b)); //결과값
+		String result = in.test2(Integer.valueOf(a),Integer.parseInt(b)); //결과값
 		
 		//Controller 에서 View로 가상의 객체명으로 전달 setAttribute 가상 객체 이름 total생성
 		request.setAttribute("total", result); 
