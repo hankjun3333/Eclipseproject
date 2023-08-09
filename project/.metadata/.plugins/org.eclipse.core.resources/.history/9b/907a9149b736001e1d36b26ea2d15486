@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax를 이용한 JSON 파일 로드 1번</title>
+</head>
+<body>
+<input type="button" value="파일로드" onclick="abc()">
+</body>
+<!--버젼이 바꼇다는 뜻 <%=today%> 스크립트 버전 갱신해야함-->
+<script src="./array3.js?v=2"></script>
+</html>

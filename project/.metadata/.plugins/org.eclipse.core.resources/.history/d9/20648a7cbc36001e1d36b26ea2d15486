@@ -1,0 +1,7 @@
+var data; // 
+var array; //배열값
+
+function abc(){
+	console.log(data);
+	this.array = data; // 전역변수를 가져다가 지역변수처럼 사용 this
+}

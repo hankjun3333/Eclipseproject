@@ -1,0 +1,11 @@
+var data;
+var array;
+
+function abc(){
+	
+	function win(){
+		if(window.XMLHttpRequest){
+			return new XMLHttpRequest();
+		}
+	}
+}
