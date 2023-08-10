@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Servlet 1일차 - POST, GET 전송방식</title>
+</head>
+<body>
+	
+<!--
+	Front : 전송방식(post,get) + action(경로-절대,상대)
+	 		사용자가 입력한 값에 대한 name 값 (backend가 정해줄꺼)
+	Back : web.xml -> action에 사용하는 경로 설정
+		   Controller -> doget or dopost 설정
+		   결과값을 출력
+-->	
+	
+	<form id="f" method="post" action="http://192.168.110.223:8081/web/indexok.do">
+		데이터 전송값 : <input type="text" name="data"><br>
+		<input type="button" value="전송" onclick="abc()">
+		<!--
+			onclick : javascript를 사용하기 위한 속성값
+			abc() : 함수명  
+		-->
+		
+	</form>
+	 <!--javascript 선언문-->
+	<script>
+		function abc(){  // abc 함수 선언
+			if(f.data.value == ""){
+				alert("전송할 데이터 값을 입력해주세요.");
+			}else{
+				f.submit(); 	// form태그안에 사용자 값을 전송 명령어.
+			}
+		}
+	</script>
+	
+</body>
+</html>

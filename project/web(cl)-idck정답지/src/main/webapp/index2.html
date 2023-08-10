@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Servlet 1일차 - 두개의 데이터 결과 값 출력(MC)</title>
+</head>
+<body>
+	
+<form id ="f" method="post" action="./calok.do">
+첫번쨰 숫자 : <input type="text" name="data1" id="no1"><br/>
+두번쨰 숫자 : <input type="text" name="data2" id="no2"><br/>
+<input type="button" value="전송" onclick="abc()">
+</form>
+	<script>
+		function abc(){
+			var no1 = document.getElementById("no1");
+			var no2 = document.getElementById("no2");
+			
+			if(no1.value == ""){
+				alert("첫번째 숫자 값을 입력하세요~")
+				no1.focus();
+			}
+			else if(no2.value ==""){
+				alert("두번째 숫자 값을 입력하세요.")
+				no2.focus();
+			}else{
+				f.submit();
+			}
+		}
+	</script>
+	
+</body>
+</html>

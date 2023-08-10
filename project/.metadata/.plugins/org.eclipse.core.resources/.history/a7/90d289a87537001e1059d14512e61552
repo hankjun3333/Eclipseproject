@@ -1,0 +1,55 @@
+package array_test;
+
+import java.util.Arrays;
+
+public class array2 {
+
+	public static void main(String[] args) {
+		new array2().test();
+		
+	}
+	public void test() {
+		/*
+		 응용문제 1번 
+		 해당 사용자 아이디 배열값 중 아이디가 3자리 이하의 사용자만 출력하시오 
+		 */
+		String id[] = {"hong","kim","park","lee","jang","so"};
+		int w = 0;
+		int ea = id.length;
+		/*
+		 for문으로 한번 해봄
+		 * for(w=0; w<ea; w++) { //System.out.println(id[w]); if(id[w].length() <= 3) {
+		 * System.out.println(id[w]); } }
+		 */
+		
+		/*
+		 while문으로 한번 해봄
+		 * while(w<ea) { //System.out.println(id[w]); if(id[w].length() <= 3) {
+		 * System.out.println(id[w]); } w++; }
+		 */
+		
+		/*
+		 foreach문으로 한번 해봄
+		 * for(String k : id) { System.out.println(k); }
+		 */
+		
+		//-----------------------------------------------
+		
+		/* 
+		  응용문제 2번
+		  데이터는 다음과 같습니다. 15 60 11 14 27의 총 5개의 숫자가 있으며
+		  해당 데이터의 모든 합한 결과값을 출력시키세요 (127)		  
+		 */
+		
+		int data[] = {15,60,11,14,27};
+		int ww =0;
+		int total = 0;
+		do {
+			
+			ww++;
+		}
+		while(ww<data.length);
+	}
+	
+	
+}

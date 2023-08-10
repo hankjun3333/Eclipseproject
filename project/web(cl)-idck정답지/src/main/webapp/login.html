@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Servlet 1일차 - 로그인 페이지</title>
+</head>
+<body>
+	<script>
+		function bbb(){
+			var aa = document.getElementById("mid");
+			//HTML에 실제 속성을 추가하여 사용하는 방식.
+			aa.value = "hong";
+			aa.name = "mid";
+			aa.className="box";
+			
+			/*
+			Attribute(속성) : 태그에 값을 추가 또는 가져올 수 있습니다. 
+			단, 실제 HTML태그에서는 확인되지 않음.
+			*/
+			var db = aa.getAttribute("data");
+			console.log(db);
+			
+			var bb = document.getElementById("mpass");
+			bb.setAttribute("data-pass","a123456");
+			
+			// get형태로 URI를 이용하여 데이터를 전송 하는 형태 (form없이 보내는 방식. => 암호화 미적용)
+			// location.href="./loginok.do?data1="+aa.value+"&data2="+bb.value;
+			
+			// 패스워드 부분만 base 64 암호화 적용하여 GET 전송
+			var encode = window.btoa(bb.value) // atob (암호화 해제)
+			location.href="./loginok.do?data1="+aa.value+"&data2="+encode;
+			
+			
+		}
+	</script>
+<!--
+	submit, reset 무조건 form 태그와 함께 사용
+	단, button은 JS, ES, TS 등등 이용하여 사용합니다.
+	disk icon? 
+-->
+
+아이디 : <input type="text" id="mid" data="honghong"name="testmmm"><br/>
+패스워드 : <input type="password" id="mpass"><br/>
+<input type="button" value="Login" onclick="bbb()">
+<!--button (enter 안됨, 자바스크립트 이벤트처리해줘야함.), submit--> 
+
+</body>
+</html>

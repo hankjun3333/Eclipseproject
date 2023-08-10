@@ -33,9 +33,8 @@ function abc(){
 	// true false에 따라 동기 비동기로 바뀜
 	// 어떤 파일을 로드할 것인지 설정하는 것("통신형태","파일 또는 URL","비동기&동기")
 	//post get put delete update fetch
-	//./data.json
-	//data.open("get","http://119.192.19.18:8081/web/userlist.json?callback=calldata",true); 
-	data.open("get","./data.json",true);
+	
+	data.open("get","./data.json",true); 
 	data.send(); //해당 서버에 접속 및 실행
 }
 

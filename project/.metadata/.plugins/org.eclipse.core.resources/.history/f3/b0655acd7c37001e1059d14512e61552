@@ -1,0 +1,23 @@
+package array_test;
+
+import java.util.Arrays;
+
+//sort정렬
+public class array5 {
+
+	public static void main(String[] args) {
+		new array5().test();
+	}
+	//sort : 오름 차순, 내림차순으로 정렬할때 사용하는 클래스임
+	/* 오름차순이 기본이고 내림차수는 Collections.reverseOrder 사용해야 됨*/
+	//숫자 자료형을 가질땐 즉, int형 배열일땐 내림차순 정렬시엔 Integer로 선언해야 정상작동!!
+	public void test() {		
+		Integer a[] = {10,1,6,9,20,11,7};
+		//오름 차순으로 해보자
+		Arrays.sort(a);
+		System.out.println(Arrays.toString(a));
+	}
+
+}
+
+

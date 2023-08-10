@@ -1,0 +1,22 @@
+calldata({
+	"member_list":[
+		{
+			"name":"홍길동",
+			"age" : "25",
+			"level": 3,
+			"point" : 2500
+		},
+		{
+			"name":"이순신",
+			"age" : "33",
+			"level": 1,
+			"point" : 500
+		},
+		{
+			"name":"세종대왕",
+			"age" : "25",
+			"level": 2,
+			"point" : 1200
+		}
+	]
+})
