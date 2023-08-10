@@ -45,25 +45,17 @@ public class array7 {
 		  병합된 결과값은
 		  ["대한민국(40)","일본(35)","중국(70)","베트남(55)","태국(57)"]
 		 */
-		
-		//--------------------------------------8/11 여기까지
 		Object data[][] = {
 				{"대한민국","일본","중국","베트남","태국"},
 				{40,35,70,55,57}
 		};
-		Object new_data[] = new Object[data[0].length];
 		int i,k;
-		int ct=0;
 		String sum;
-		for(i=0; i<data[0].length; i++) { //5
-			for(k=0; k<data.length; k++) {
-				if(i==k) {
-					new_data[ct] = data[i][k];
-					ct++;
-				}
+		for(i=0; i<data[0].length; i++) { //2
+			for(k=0; k<data.length; k++) { //5
+				System.out.println(data[k][i]);
 			}
 		}
-		System.out.println(Arrays.toString(new_data));
 	}
 
 }
