@@ -55,11 +55,6 @@ MPA(Multiple Page Application)
 SSR 결론
 클라이언트가 요청 시 즉시 
 
-
-
-
-
-
 ----
 ui의 종류를 알아보기
 

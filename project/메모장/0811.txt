@@ -1,0 +1,47 @@
+input submit 속성은 
+form태그에 onsubmit을 줘야 핸들링이 된다
+button onclick 되지만 submit은 안된다
+
+form태그 
+
+script 정의
+
+xml 만들고
+
+servlet 만들고
+
+xml servlet 만들어주고
+
+로그인 샘플
+http://mekeyace.kbsn.or.kr/login.zip
+아이디 찾기
+http://mekeyace.kbsn.or.kr/idloss.zip
+패스워드 찾기
+http://mekeyace.kbsn.or.kr/passloss.zip
+오늘배운것 example 프로젝트만 함 복습해보자
+
+이종혁 강사님
+010-8584-5341
+
+maria db 10.4 30 버전 셋팅
+client
+connection 부분 utf-8로 바꿔줘야 됨
+\status
+
+mysql -u root -p
+
+create table member(
+midx int not null auto_increment,
+mid varchar(100) not null,
+mpw varchar(100) not null,
+mname char(50) not null,
+mpost char(5) not null,
+maddr text not null,
+maddr_dtc text not null,
+primary key(midx)); 
+
+담주
+인풋스트림 아웃풋스트림
+네트워크 -- 서버 smtp 메일날라가는거
+파일전송 데이터베이스 사용방식
+
