@@ -1,4 +1,8 @@
 package array_test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 //2차 배열
 //정적배열,동적배열 {"홍길동"}
 public class array6 {
@@ -71,6 +75,37 @@ public class array6 {
 		 * 결과 출력예시)
 		 * ["짝수","홀수","짝수","짝수","짝수"]
 		 */
+		
+		/*
+		 * int adata[] = {5,17,19,22,23}; int bdata[] = {1,2,3,4,5}; String cdata[] =
+		 * new String[adata.length]; int k =0; int sum = 0; int count=0;
+		 * 
+		 * for(k=0; k<adata.length; k++) { sum = adata[k] + bdata[k]; if(sum %2 ==0) {
+		 * cdata[count] = "\"짝수\""; } else { cdata[count] = "\"홀수\""; } count++; }
+		 * System.out.println(Arrays.toString(cdata));
+		 */
+		  
+		//2차배열로 만들어서 해보자
+		int n[][] = {
+				{5,17,19,22,23},
+				{1,2,3,4,5}
+		};
+		int ea1 = n[0].length;
+		int w = 0;
+		String newdata[] = new String[ea1];
+		int sum = 0; // int sum =0; sum += 변수 이럴땐넣어야함 변수선언시 초기화 안하면 쓰레기값들어가잇는상태
+		while(w<ea1) {
+			sum = n[0][w] + n[1][w];
+			if(sum %2 ==0) { //짝수 판별
+				newdata[w] = " \"짝수\" ";
+			}
+			else { //홀수판별
+				newdata[w] = " \"홀수\" ";
+			}
+			w++;
+		}
+		System.out.println(Arrays.toString(newdata));
+		  
 		
 	}
 }

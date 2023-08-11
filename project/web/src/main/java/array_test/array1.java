@@ -46,22 +46,22 @@ public class array1 {
 		c[0] = "hong";
 		c[1] = 25;
 		int ea3 = c.length;
-		//System.out.println(ea3);
-		//System.out.println(Arrays.toString(c));
+		System.out.println(ea3);
+		System.out.println(Arrays.toString(c));
 		
 		//결론 int는 toString 사용안됨 byte로 형변환 해줘야됨 나머진 toString쓰면됨 --라이브러리 적용하면 쓸수있음
 		
 		//null,0의 값을 적용하지 않고 규격에 맞게 데이터를 입력하는 형태
 		int [] d = {1,2,3,4,5}; // 자료형태로 배열선언 
 		int ea4 = d.length;
-		//System.out.println(ea4);
-		//System.out.println(Arrays.toString(d));
+		System.out.println(ea4);
+		System.out.println(Arrays.toString(d));
 		
 		//이것도 배열 ㅇㅇ 클래스형태로 배열 선언
 		Integer e[] = {10,20,30,40};
 		int ea5 = e.length;
-		//System.out.println(ea5);
-		//System.out.println(Arrays.toString(e));
+		System.out.println(ea5);
+		System.out.println(Arrays.toString(e));
 		
 	}
 	
