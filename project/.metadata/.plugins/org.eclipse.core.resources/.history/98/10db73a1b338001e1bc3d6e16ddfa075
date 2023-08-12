@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="chrome=1,IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <title>반응형 로그인</title>
+        <link rel="stylesheet" type="text/css" href="./weblogin.css">
+    </head>
+<body>
+	
+	<!-- submit 이벤트 발생시 form 태그에 onsubmit 이라는 속성을 사용하여 핸들링해야됨
+	그 외에 javascript 함수 명과 함께 return을 사용해야 핸들링가능
+	submit만들고  onclick때리면 절대안됨 이건 button에서만 됨
+	submit 속성일때는 onsubmit 이라는속성!!!!!!!!!!!!!!!!!!-->
+<form id="f" onsubmit="return login_infock()">
+<div class="login">
+    <span class="left">
+        <label>아이디<input type="text" id="mid" name="userid"></label>
+        <label>패스워드<input type="password" id="mpass" name="userpw"></label>
+    </span>
+    <span class="right">
+        <input type="submit" value="로그인">
+    </span>
+    <span class="bottom">
+        <div class="divleft">회원가입</div>
+        <div class="divright">아이디/비밀번호 찾기</div>
+    </span>
+</div>
+</form>
+<script> //아이디를 입력, 패스워드를 입력, 패스워드를 4자 이상 사용문구 출력되도록 해볼것 name값은 userid,userpw
+	function login_infock(){
+		if(f.userid.value==""){
+			alert("아이디를 입력해주세요");
+			return false;
+		}
+		else if(f.userpw.value==""){
+			alert("패스워드를 입력해주세요");
+			return false;
+			
+		}
+		else if(f.userpw.length() < 4){
+			alert("패스워드를 4자 이상 입력해주세요");
+			return false;
+		}
+		else{
+			return; //submit속성시 return은 데이터가 비밀번호가 틀렸는데도 초기화 되는것을 막아줌
+			//return 하면 기본값이 true여서 페이지 초기화가 되고 false; 하면 데이터가 살아잇음 그대로
+		}
+		
+	}
+</script>
+</body>
+</html>

@@ -1,6 +1,0 @@
-var data; // 
-var array; //배열값
-
-function abc(){
-	console.log(data);
-}

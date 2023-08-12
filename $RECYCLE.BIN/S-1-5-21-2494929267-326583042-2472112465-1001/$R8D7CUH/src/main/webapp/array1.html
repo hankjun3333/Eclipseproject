@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열구조 생성법 및 콘솔출력 1</title>
+</head>
+<body>
+<input type="button" value="배열1" onclick="aaa()">
+<input type="button" value="배열2" onclick="bbb()">
+<input type="button" value="배열3" onclick="ccc()">
+<input type="button" value="배열4" onclick="ddd()">
+
+<div id="box">
+	<!--
+	<ul>
+		<li>아이디 : </li>
+		<li>고객명 : </li>
+		<li>나이 : </li>
+	</ul>
+	-->
+</div>
+<script>
+	var html = document.getElementById("box");
+	function aaa(){
+		// {} 배열 구조는 대표키가 있으며, 단 대표키는 중복X.
+		var data = {
+			"myinfo1":["홍길동","25","hong@nate.com"],
+			"myinfo2":["김유신","30","kim@nate.com"]
+		};
+		console.log(data);
+	}
+	function bbb(){
+		// 대표키 (Table 명), 대표키 안에 각각의 파트별로 보조키(컬럼명)을 이용하여
+		// 배열을 설계하는 방식
+		var data = {
+			"myinfo" : [
+			{
+				"id": "hong",
+				"name":"홍길동",
+				"age" : "25"
+			},
+			{
+				"id": "kim",
+				"name":"kim길동",
+				"age" : "30"
+			}
+			]
+		}
+		var ea = data["myinfo"].length;
+		console.log(ea);
+		var w = 0;
+		var html = document.getElementById("box");
+		while(w < ea){
+			//console.log(data["myinfo"][w]["id"]);
+			html.innerHTML += `
+				<ul>
+					<li>아이디 : ` +data["myinfo"][w]["id"]+ `</li>
+					<li>고객명 : ` +data["myinfo"][w]["name"]+`</li>
+					<li>나이 :` + data["myinfo"][w]["age"]+ `</li>
+				</ul>
+			`;
+			w++;
+		}
+		
+	}
+	function ccc(){
+		// 대표키(Table명) 이며, 그 외에 2차배열 형태로 데이터값을 순서대로
+		// 나열하여 출력하는 배열 형태.
+		var data = {
+			"myinfo" :[
+				["hong","25","hong@nate.com"],
+				["kim","30","kim@nate.com"]
+			]
+		};
+		
+		console.log(data);
+	}
+	function ddd(){
+		// 복합키
+		var data = {
+			"myinfo" : [
+				{
+					"id" : "hong", "name" :"홍길동", "age":"25",
+					"log_history":[
+						{"last_day": "2023-08-09"}
+					]
+				},
+				{
+					"id" : "kim", "name" :"김유신", "age":"30",
+					"log_history":[
+						{"last_day": ""}
+					]
+				}
+			]
+		}
+		console.log(data);
+	}
+	
+</script>
+
+</body>
+</html>

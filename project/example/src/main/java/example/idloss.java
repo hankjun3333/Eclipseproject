@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,8 +50,6 @@ public class idloss extends HttpServlet {
 					msg = members[2][w]; //해당 아이디 데이터를 문자열 변수에 삽입
 					break;
 				}
-
-				
 			}
 			else { //이름을 찾았는데 없는 경우
 				count = 0;
