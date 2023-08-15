@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="button" value="배열1" onclick="aaa()">
+<input type="button" value="배열2" onclick="bbb()">
+<input type="button" value="배열3" onclick="ccc()">
+<div>
+	<!-- 데이터 찍는곳 예시 -->
+	<!--
+	<ul>
+		<li>아이디 : </li>
+		<li>고객명 : </li>
+		<li>나이 : </li>
+	</ul>
+	-->
+	
+</div>
+<script>
+	function aaa(){
+		var html = document.getElementById("box");
+		var data = {
+			"myinfo1" : ["홍길동","25","hong@nate.com"],
+			"myinfo2" : ["김유신","30","kim@nate.com"]
+		}
+		console.log(data);
+	}
+	function bbb(){
+		var data = {
+			"myinfo":[
+			{
+				"id":"hong",
+				"name":"홍길동",
+				"age":"25"
+			},
+			{
+				"id":"kim",
+				"name":"김유신",
+				"age":"30"
+			}
+			]
+		}
+		var ea = data["myinfo"].length;
+		console.log(ea); //2개 나옴 배열 안에 배열구조
+		//저장된 배열로 데이터 찍어보기
+		var w =0;
+		
+		var html = document.getElementById("box");
+		while(w<ea){
+			console.log(data["myinfo"][w]["id"]);
+			html.innerHTML +=` 
+			<ul>
+				<li>아이디 :` + data["myinfo"][w]["id"] + `</li>
+				<li>이름 : ` + data["myinfo"][w]["id"] + ` </li>
+				<li>나이 :` + data["myinfo"][w]["id"] +` </li>
+			</ul>`;
+		}
+}		
+		function ccc(){
+		
+		}
+</script>
+</body>
+</html>
