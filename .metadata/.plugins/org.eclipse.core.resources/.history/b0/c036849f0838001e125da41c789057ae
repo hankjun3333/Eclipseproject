@@ -1,0 +1,28 @@
+package example;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class idloss extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public idloss() {
+        super();
+    }
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//java , servlet, spring 모두 한글 형태가 출력이 안됨(웹상태에서) --정상적인 상황
+		//web을 쓰려면 두가지 단어는 무조건 따라가야함====
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("text/html; charset=utf-8");
+		String usernm = request.getParameter("usernm");
+		String useremail = request.getParameter("useremail");
+		System.out.println(usernm + useremail);
+	}
+
+}

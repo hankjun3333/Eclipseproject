@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기</title>
+    <style>
+        .box { width: 150px; height: 50px; border:1px solid #ccc; }
+    </style>
+</head>
+<body>
+<!--응용문제 3번 -->
+<!--
+	
+아이디 찾기 버튼 클릭시 사용자가 이름, 이메일 모두 입력이 되어야만 하고
+검토하는 스크립트를 작성하시오.-->
+
+[아이디 찾기]
+<!-- ajax 통신은 id로 핸들링 해야 된다.-->
+이름 : <input type="text" id="usernm">
+이메일 : <input type="text" id="useremail">
+<input type="button" value="아이디 찾기" onclick="id_search()">
+<br><br>
+아이디명 : <div class="box" id="box"></div>
+<!-- form이 없는 것은 스크립트로 쓰는 거임 이렇게 쓰는거임-->
+
+<script>
+	//form태그 가 없을경우 무조건 getElementById로 값을 확인해야됨
+	//form이 없으니까 name속성을 못씀
+	function id_search(){
+		var nm = document.getElementById("usernm");
+		var email = document.getElementById("useremail");
+		if(nm.value==""){
+			alert("이름을 입력하셔야 합니다.");
+		}
+		else if(email.value==""){
+			alert("이메일을 입력하셔야 합니다.");
+		}
+		else{
+			//ajax를 사용하기 위해 해당 정보를 인자값으로 전달하는 것
+			ajax(nm.value,email.value); 
+		}
+	}
+	function ajax(a,b){
+		//응답받아야 하는 변수 필요
+		var info; // ajax 통신 변수
+		var data; // 응답 받는 결과변수
+		//백엔드에게 전달되는 2개의 값 //usernm(이름),useremail(이메일) -- send에게 넣어줘야됨
+		var postdata = "usernm="+ a + "&useremail=" + b; 
+		function wk(){
+			if(window.XMLHttpRequest){
+				return new XMLHttpRequest();
+			}
+		}
+		
+		function idsearch(){
+			if(info.readyState==XMLHttpRequest.DONE && info.status==200){
+				//console.log(this.response);
+				var result = this.response;
+				if(result=="error"){
+					alert("해당 정보를 확인하지 못하였습니다");
+				}
+				else{
+					var html = document.getElementById("box");
+					html.append(result); // append 해당 아이디값 안에 데이터를 적용
+					//html.insertBefore(result);
+					
+				}
+			}
+		}
+		info = wk();
+		info.onreadystatechange = idsearch;
+		info.open("POST","./idsearch.do",true);
+		//여기서 통신오류 프론트가 잘못함setRequestHeader : open 다음에 써야 정상작동함
+		//setRequestHeader는 open(post)이거 다음에 써야 정상 작동을 함!!!!!!!!!!!!!!! 
+		info.setRequestHeader("content-type","application/x-www-form-urlencoded"); 
+		info.send(postdata);
+		//응용문제 4 번 : 
+		
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+package io;
+//파일쓰기(write)
+public class file4 {
+
+	public static void main(String[] args) {
+		//static 언제씀?
+		//예외처리 어떤식?
+		//오버로딩 오버라이딩 어떤식으로?
+		
+		try {
+			
+		}
+		catch(Exception e) {
+			System.out.println("파일 오류 발생!!");
+		}
+	}
+
+}
+class data3{
+	public void abc() throws Exception{
+		
+	}
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자가 입력한 값을 배열로 등록</title>
+</head>
+<body>
+<!-- 
+	//응용문제 6번ㅇ 사용자를 한번에 등록하는 프로세서이다 무조건 필수로 한명은 입력이 되어야 하고
+	최대 5명까지 입력 할 수 있습니다.
+	해당 입력이 완료 된 후 insert.do로 post 전송합니다
+	해당 사용자 이름 데이터를 ArrayList로 등록하여 다음 과 같이 결과를 출력
+	결과)
+	[홍길동,이순신,유관순]
+-->
+<p>사용자 이름 등록</p>
+1. <input type="text"> <br>
+2. <input type="text"> <br>
+3. <input type="text"> <br>
+4. <input type="text"> <br>
+5. <input type="text"> <br>
+6. <input type="text"> <br>
+</body>
+</html>

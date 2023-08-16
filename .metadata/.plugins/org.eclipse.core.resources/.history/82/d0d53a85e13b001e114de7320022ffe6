@@ -1,0 +1,34 @@
+package io;
+
+import java.io.FileWriter;
+
+//파일쓰기(write)
+public class file4 {
+
+	public static void main(String[] args) {
+		//static 언제씀?
+		//예외처리 어떤식?
+		//오버로딩 오버라이딩 어떤식으로?
+		
+		try {
+			new data3().abc();
+		}
+		catch(Exception e) {
+			System.out.println("파일 오류 발생!!");
+		}
+	}
+
+}
+class data3{
+	
+	FileWriter fw = null;
+	
+	public void abc() throws Exception{
+		String user[] = {"홍길동","유관순","이순신"};
+		this.fw =new FileWriter("D:\\project\\web\\src\\main\\webapp\\data.txt");
+		for(String name : user) {
+			this.fw.write(name);
+		}
+		this.fw.close(); //파일 열고나서는 항상 닫자!!!!!!
+	}
+}

@@ -1,0 +1,12 @@
+package io;
+
+//FileReader + BufferedReader 응용편
+
+public class file8 {
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

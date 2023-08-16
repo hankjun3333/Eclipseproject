@@ -1,0 +1,29 @@
+package array_test;
+
+import java.util.ArrayList;
+
+//ArrayList 배열 구조
+public class array8 {
+
+	public static void main(String[] args) {
+		new array8().test();
+	}
+	public void test() {
+		String member[] = {"이순신","홍길동","유관순","강감찬"};
+		//<자료형 다쓸수잇음>
+		ArrayList<String> ar = new ArrayList<String>(); //빈배열 생성
+		//클래스 형태라서 length안먹음 size 써야됨 
+		//방 갯수가 자동으로늘어남
+		System.out.println(ar.size());
+		ar.add(member[0]);
+		ar.add(member[2]);
+		ar.add(member[3]);
+		System.out.println(ar.size()); //size()는 현재 배열크기
+		System.out.println(ar); //자체가 ArrayList라서 ar 바로 찍으면됨
+		ar.get(1); //이때는 배열기호 x
+		System.out.println(ar.get(1));
+		ar.remove(2); //db는 가급적 지우면안됨
+		System.out.println(ar);
+	}
+
+}

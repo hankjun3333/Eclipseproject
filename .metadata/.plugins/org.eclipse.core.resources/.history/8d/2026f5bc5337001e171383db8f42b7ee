@@ -1,0 +1,12 @@
+package array_test;
+//ArrayList 배열 구조
+public class array8 {
+
+	public static void main(String[] args) {
+		new array8().test();
+	}
+	public void test() {
+		String member[] = {"이순신","홍길동","유관순","강감찬"};
+	}
+
+}

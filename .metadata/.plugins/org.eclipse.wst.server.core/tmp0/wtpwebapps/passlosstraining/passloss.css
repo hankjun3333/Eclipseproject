@@ -1,0 +1,74 @@
+body{margin: 0; padding: 0;}
+            span, label{display: block;}
+            
+            .seccss{
+                width: 600px;
+                height: auto;
+                margin: 0 auto;
+                margin-top: 100px;
+            }
+            .box{
+                width: 800px;
+                height: 80px;
+                border: 1px solid white;
+                position: relative;
+                box-shadow: 10px 10px 15px 1px rgb(206, 205, 205);
+            }
+            .box>p{
+                width: 150px;
+                height: 40px;
+                background-color: navy;
+                color: white;
+                font-size: 13px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 40px;
+                position: relative;
+                margin-top: -40px;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .box>span{
+                width: auto;
+                height: 30px;
+                position: absolute;
+                left: 20px;
+                top: 25px;
+            }
+
+            .box>span>input{
+                width: 200px;
+                height: 30px;
+                box-sizing: border-box;
+                margin-right: 10px;
+                outline: none;
+            }
+            .box>span>input:last-child{
+                margin-right: 0px;
+            }
+
+            .box>label{
+                width: 120px;
+                height: 30px;
+                position: absolute;
+                right: 20px;
+                top: 25px;
+            }
+            .box>label>input{
+                width: 120px;
+                height: 30px;
+                border: 2px solid navy;
+                background-color: white;
+                border-radius: 30px;
+                color: navy;
+                cursor: pointer;
+                box-sizing: border-box;
+                font-size: 12px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 26px;
+            }
+            
+            .box:nth-of-type(2){
+                margin-top: 100px;
+            }

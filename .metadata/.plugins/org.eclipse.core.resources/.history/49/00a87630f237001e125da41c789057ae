@@ -1,0 +1,49 @@
+package example;
+
+import java.io.IOException;
+import java.util.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.catalina.tribes.util.Arrays;
+
+
+public class main extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public main() {
+        super();
+
+    }
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String list[] = {"hong","kim","park","apink"};
+		String passwd[] = {"a1234","b1234","c1234","apink"};
+		
+		/*
+		 응용문제 1번 
+		 해당 2개의 배열을 이용하여 다음과 같은 결과값으로 출력 되도록 하시오.
+		 예시)
+		 hong
+		 a1234
+		 kim
+		 b1234 이런식으로
+		 park
+		 c1234 
+		 */
+		String memberlist[][]= {
+				{"hong","kim","park","apink"},
+				{"a1234","b1234","c1234","apink"}
+		};
+		int i, k ;
+		for(i=0; i<memberlist[0].length; i++) {
+			for(k=0; k<memberlist.length; k++) {
+				System.out.println(Arrays.toString(memberlist));
+			}
+		}
+	}
+
+}

@@ -1,0 +1,23 @@
+package array_test;
+
+import java.util.ArrayList;
+
+//ArrayList 배열 구조
+public class array8 {
+
+	public static void main(String[] args) {
+		new array8().test();
+	}
+	public void test() {
+		String member[] = {"이순신","홍길동","유관순","강감찬"};
+		//<자료형 다쓸수잇음>
+		ArrayList<String> ar = new ArrayList<String>();
+		//클래스 형태라서 length안먹음 size 써야됨 
+		//방 갯수가 자동으로늘어남
+		System.out.println(ar.size());
+		ar.add(member[0]);
+		System.out.println(ar.size());
+		System.out.println(ar);
+	}
+
+}

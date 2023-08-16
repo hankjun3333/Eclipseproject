@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="chrome=1,IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <title>반응형 로그인</title>
+        <link rel="stylesheet" type="text/css" href="./weblogin.css">
+    </head>
+<body>
+<form onsubmit="return login_infock()" id="f" method="post" action="" enctype="application/x-www-form-urlencoded">
+<div class="login">
+    <span class="left">
+        <label>아이디<input type="text" id="mid" name="userid" placeholder="아이디를 입력하세요"></label>
+        <label>패스워드<input type="password" id="mpass" name="userpw" placeholder="패스워드를 입력하세요"></label>
+    </span>
+    <span class="right">
+        <input type="submit" value="로그인">
+    </span>
+    <span class="bottom">
+        <div class="divleft">회원가입</div>
+        <div class="divright">아이디/비밀번호 찾기</div>
+    </span>
+</div>
+</form>
+<script>
+	function login_infock(){
+		//console.log("test");
+		if(f.userid.value==""){
+			alert("아이디를 입력하세요");
+			return false;
+		}
+		else if(f.userpw.value==""){
+			alert("패스워드를 입력하세요!");
+			return false;
+		}
+		else{
+			//return true;
+			return; // 기본이 true
+		}
+		/*submit 할땐 return form에다가 넣어주고 스크립트에다가 진행하면 return // 안하면 return false*/
+		/* submit : return true, return false로 구분하여 페이지 이동을 핸들링함 */
+		   
+	}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+package io;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+//Buffered를 사용해보기
+
+public class file7 {
+
+	public static void main(String[] args) {
+		try {
+			data5 d = new data5();
+			d.abc();
+		}
+		catch(Exception e){
+			System.out.println("파일 오류발생!!");
+		}
+
+	}
+
+}
+class data5{
+	FileReader fr = null;
+	//Buffered : Temp (임시 저장소-메모리) 
+	//효율적으로 파일을 메모리에 등록시킨 후 해당 메모리에 등록된 값을 출력하는 형태
+	/*
+	  
+	  
+	  */
+	
+	public void abc() throws Exception{
+		this.fr = new FileReader("D:\\project\\web\\src\\main\\webapp\\number.txt");
+		//System.out.println((char)this.fr.read()); // 1번 문자 맨앞 만 찍음 --힘들어짐
+		BufferedReader bf = new BufferedReader(this.fr);
+		System.out.println(bf.readLine()); //하나의 라인을 통째로 읽음 - 휘발성임 그다음꺼 찍음
+		System.out.println(bf.readLine());
+		System.out.println(bf.readLine());
+		
+	}
+}

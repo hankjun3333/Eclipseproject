@@ -1,0 +1,23 @@
+package io;
+
+import java.io.InputStream;
+
+//FileReader, FileWriter, Buffered : 파일을 읽고,쓰기 (문서에 많이 사용) - 아스키
+//Buffered , LineNumberReader : 메모리 영역
+//Stream 이란 : 문서용도 가능, 이미지, 동영상, 오디오 일때 - (바이너리) - //BufferedStream 사용
+//스트림 종류 FileinputStream, AudioInputStream, ObjectInputStream 다양한 것들이 있음
+
+public class file9 {
+
+	public static void main(String[] args) {
+		try {
+			InputStream is = System.in; // 스캐너 안쓰고 키보드로 쓰겠다는 것임
+			int code = is.read();
+			System.out.println(code);
+		}
+		catch(Exception e){
+			System.out.println("코드 오류");
+		}
+	}
+
+}

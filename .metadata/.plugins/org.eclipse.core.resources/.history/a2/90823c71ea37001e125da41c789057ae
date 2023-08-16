@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="chrome=1,IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <title>반응형 로그인</title>
+        <link rel="stylesheet" type="text/css" href="./weblogin.css">
+    </head>
+<body>
+<div class="login">
+    <span class="left">
+        <label>아이디<input type="text" id="mid"></label>
+        <label>패스워드<input type="password" id="mpass"></label>
+    </span>
+    <span class="right">
+        <input type="submit" value="로그인">
+    </span>
+    <span class="bottom">
+        <div class="divleft">회원가입</div>
+        <div class="divright">아이디/비밀번호 찾기</div>
+    </span>
+</div>
+</body>
+</html>

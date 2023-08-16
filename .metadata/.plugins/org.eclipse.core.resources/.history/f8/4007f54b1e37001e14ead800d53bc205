@@ -1,0 +1,9 @@
+package array_test;
+//원시배열 형태
+public class array1 {
+
+	public static void main(String[] args) {
+		System.out.println("test");
+	}
+
+}
