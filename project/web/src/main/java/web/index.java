@@ -13,7 +13,8 @@ public class index {
 		 Integer.valueOf : 문자를 숫자로 변환시 해당 값이 숫자인지 문자인지 검토 후 변환
 		 Integer.parseInt : 문자를 숫자로 int형으로 변환
 		  */
-
+		
+		
 		this.sum =Integer.valueOf(a)+Integer.parseInt(b);
 		//return 메소드 자료형이 문자 이므로 결과값을 리턴시킬 경우
 		//숫자를 문자화 하여 반환함 toString 이용해서

@@ -22,7 +22,7 @@ public class cal extends HttpServlet {
 		String a =request.getParameter("data1");
 		String b =request.getParameter("data2");
 		
-		index in = new index(); //index 메소드 쓰려고 인스턴스 생성
+		index in = new index();
 		//문자값을 문자메소드로 전달 -> 최종 결과값을 문자로 받음 --Module에서 변환 및 계산
 		//String result = in.test(a,b);
 		

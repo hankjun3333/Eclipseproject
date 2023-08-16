@@ -13,7 +13,6 @@ public class array8 {
 		//ArrayList 라는 클래스 : 배열을 사용하는 클래스의 한 종류
 		/* add(데이터 추가), get(데이터 값 출력),remove(데이터 삭제), 숫자는 index 0부터 */
 		/* size(배열 index갯수를 말함 (length안통함 여기선)) */
-		
 		String member[] = {"이순신","홍길동","유관순","강감찬"};
 		//<자료형 다쓸수잇음>
 		ArrayList<String> ar = new ArrayList<String>(); //빈배열 생성
