@@ -1,0 +1,27 @@
+package io;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+//BufferedInputStream, BufferedOutputStream
+public class file15 {
+
+	public static void main(String[] args) {
+		try {
+			data12 d =new data12();
+			d.abc();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+
+}
+class data12{
+	public void abc() throws Exception{
+		String data = "D:\\project\\web_example\\src\\main\\webapp\\image.jpg";
+		InputStream is = new FileInputStream("D:\\project\\web_example\\src\\main\\webapp\\image.jpg");
+		BufferedInputStream bi = new BufferedInputStream(is);
+	}
+}

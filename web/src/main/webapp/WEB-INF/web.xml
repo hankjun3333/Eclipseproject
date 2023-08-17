@@ -33,4 +33,13 @@
 		<url-pattern>/lotto_ok.do</url-pattern>
 	</servlet-mapping>
 	
+	<!--  파일업로드부분 -->
+	<servlet>
+	<servlet-name>fileupload1</servlet-name>
+	<servlet-class>web.file</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>fileupload1</servlet-name>
+	<url-pattern>/fileupok.do</url-pattern>
+	</servlet-mapping>
 </web-app>
