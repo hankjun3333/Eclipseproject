@@ -31,9 +31,21 @@
 		}
 		
 	}
-	
-	function ok(){
-		
+	function ok(name,node){
+		if(node == 1){
+			document.getElementById("all").checked = false;
+		}
+		var w =1;
+		var count =0;
+		while(w<=3){
+			if(document.getElementById("a"+w).checked ==true){
+				count++;
+			}
+			w++;
+		}
+		if(count==3){
+			document.getElementById("all").checked = true;
+		}
 	}
 </script>
 </html>

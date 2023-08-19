@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 - 버블링+캡쳐링 함수 기초 응용편(장바구니)-radio </title>
+</head>
+<body>
+	<!--함수를 하나를 해도 되고 두개를 해도 됨 -->
+	
+
+<input type="checkbox" id="all" onclick="agree(this.checked)">전체동의 <br>
+이메일 약관 <input type="radio" name="a" id="a1" onclick="ok1(this.name,0)"> 동의함 
+<input type="radio" name="a" id="aa1" onclick="ok1(this.name,1)" checked> 동의안함 <br>
+서비스 약관 <input type="radio" name="b" onclick="ok1(this.name,0)" id="a2"> 동의함 
+<input type="radio" name="b" id="aa2" onclick="ok1(this.name,1)" checked> 동의안함 <br>
+개인정보서비스 약관 <input type="radio" name="c" id="a3" onclick="ok1(this.name,0)"> 동의함 
+<input type="radio" name="c" id="aa3" onclick="ok1(this.name,1)" checked> 동의안함 <br>
+
+</body>
+<script>
+	function ok1(name,node){ //해당 오브젝트의 name값과 노드번호(배열)를 가져와서
+		var nm = document.getElementsByName(name); //getElementByName name으로 확인
+		//console.log(nm[node]);
+		if(node ==1){ //동의안함을 무조건 클릭시 전체 동의를 해제시킴
+			document.getElementById("all").checked = false;
+		}
+		else{ //각각의 서비스 약관에 대한 동의함 클릭시 반복문으로 모두 동의함이 되었는지 확인
+			var w =1;
+			var count = 0;
+			while(w<=3){
+				if(document.getElementById("a"+w).checked == true){
+					count++;
+				}
+				w++;
+			}
+			if(count == 3){ //모두 동의함이 완료가 되었을 경우 전체 동의 부분에 체크
+				document.getElementById("all").checked = true;
+			}
+		}
+		//nm[node].checked = true;
+	}
+	function agree(e){
+		var w =1;
+		do{
+			if(e==true){
+				document.getElementById("a"+w).checked = e;	
+			}
+			else if(document.getElementById("aa"+w).checked ==true){
+				document.getElementById("all").checked = false;	
+			}
+			else {
+				document.getElementById("aa"+w).checked = true;	
+			}
+			w++;
+		}while(w<=3);
+
+	}
+</script>
+</html>
