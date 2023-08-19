@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>URI + SPLIT B파트</title>
+</head>
+<body>
+고객명 : <div id="uname"></div> <br>
+아이디 : <div id="uid"></div> <br>
+<!--readonly는 수정 불가! -->
+<input type="checkbox" id="box" name="agree" disabled> 개인정보 이용 동의 (선택)
+</body>
+<script>
+	var uri = decodeURI(window.location.search);
+	var agree = uri.split("&agree="); // on찍힐듯?
+	console.log(agree);
+	var uid = agree[0].split("&uid="); //아이디 부분 hong 찍힐듯?
+	var name = uid[0].split("?uname="); //이름부분 홍갈동 찍힐듯?
+	//console.log(data2);
+	document.getElementById("uname").innerText = name[1];
+	document.getElementById("uid").innerText = uid[1];
+	if(agree == "on"){
+		document.getElementById("box").checked = true;
+	}
+	else if(agree == "off"){
+		document.getElementById("box").checked = false;
+	}
+	
+</script>
+</html>
+
+
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+전체 선택 : <input type="checkbox" id="all" onclick="all(this.checked)"><br>
+데이터1 : <input type="checkbox" id="c1" onclick="bbb()"><br>
+데이터2 : <input type="checkbox" id="c2" onclick="bbb()"><br>
+데이터3 : <input type="checkbox" id="c3" onclick="bbb()"><br>
+데이터4 : <input type="checkbox" id="c4" onclick="bbb()"><br>
+데이터5 : <input type="checkbox" id="c5" onclick="bbb()"><br>
+데이터6 : <input type="checkbox" id="c6" onclick="bbb()"><br>
+</body>
+<script>
+	function all(e){
+		var i;
+		while(i<=6){
+			document.getElementById("c"+i).checked = e;
+			w++;
+		}
+	}
+</script>
+</html>

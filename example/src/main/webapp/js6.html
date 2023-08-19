@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바 스크립트 (한정) - 변수 배열 및 (URI 활용 법!-js7.html에게보내는역할)-통신임</title>
+</head>
+<body>
+<form id="f" method="get" action="./js7.html" onsubmit="return abc()">
+검색어 : <input type="text" name="search"><br>
+카테고리 : <input type="text" name="cate">
+<button>전송</button>	<!-- button태그는 submitㅡㅡonsubmit -->
+<!-- button 속성은 onclick 헷갈리지말자요를레히! -->
+</form>
+</body>
+<script>
+	function abc(){
+		if(f.search.value==""){
+			alert("검색어를 입력하세요");
+			return false;
+		}
+		else if(f.cate.value=""){
+			alert("카테고리를 입력하세요");
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+	
+	/* eval 떄매 위에 함수가 정상작동안할수도 있음
+	var a1 = "홍길동";
+	var a2 = "웹사이트";
+	var a3 = "쇼핑몰";
+	var a4 = "회원가입";
+	var f;
+	for(f=1; f<=4; f++){
+		var result = eval("a"+f); //a1이걸 바로 변수를 읽어버린다 eval 많이씀
+		//eval 이란! : 문자 또는 숫자를 이용하여 변수명으로 변환시켜주는 함수이다!. js만 존재
+		console.log(result);
+	}
+	*/
+	
+</script>
+</html>

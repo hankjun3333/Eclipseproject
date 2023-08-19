@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<!-- 버블링 + 캡쳐링 함수 응용편-->
+<body>
+<input type="checkbox" id="all" onclick="agree(this.checked)">전체동의 <br>
+이메일 약관 <input type="radio" name="a" id="a1" onclick="ok1(this.name,0)"> 동의함 
+<input type="radio" name="a" id="aa1" onclick="ok1(this.name,1)" checked> 동의안함 <br>
+서비스 약관 <input type="radio" name="b" onclick="ok1(this.name,0)" id="a2"> 동의함 
+<input type="radio" name="b" id="aa2" onclick="ok1(this.name,1)" checked> 동의안함 <br>
+개인정보서비스 약관 <input type="radio" name="c" id="a3" onclick="ok1(this.name,0)"> 동의함 
+<input type="radio" name="c" id="aa3" onclick="ok1(this.name,1)" checked> 동의안함 <br>
+</body>
+</html>
