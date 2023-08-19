@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>URI 활용법 - js6.html의 데이터 받는 역할을함! </title>
+</head>
+<body>
+검색어 : <div id="search"></div> <br>
+카테고리 : <div id="cate"></div> <br>
+</body>
+<script>
+	/* 데이터한개 들어올떄!
+	var uri = window.location.search; //파라미터의 URI의 값을 가져옴
+	var data = uri.split("?search="); 
+	//?search= 라는 단어를 기준으로 배열화시키는것 split
+	//js6.html form태그에서 전송시 encytpe="application/x-www-form-urlencoded"
+	//되서 날라가기 떄문에 디코드URI해줘야됨 한글깨지는 것 방지!!!
+	var v = decodeURI(data[1]); 
+	console.log(v);
+	*/
+	
+	/* 데이터 두개 이상일때 */
+	var uri = decodeURI(window.location.search);
+	var data = uri.split("&cate=");
+	var data2 = data[0].split("?search=");
+	console.log(data2);
+	document.getElementById("search").innerText = data2[1];
+	document.getElementById("cate").innerText = data[1];	
+</script>
+</html>

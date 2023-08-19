@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>URI + SPLIT B파트</title>
+</head>
+<body>
+	고객명 : <div id="uname"></div><br>
+	아이디 : <div id="uid"></div><br>
+	<input type="checkbox" id="agree"> 개인정보 3자에 제공(선택)
+</body>
+<script>
+	var uri = decodeURI(window.location.search);
+	//console.log(uri);
+	var agree = uri.split("&agree=");
+	//console.log(agree);
+	
+	if( agree[1] == "on"){
+		document.getElementById("agree").checked = true;
+	}
+	else{
+		document.getElementById("agree").checked = false;
+	}
+	
+	
+	var uid = agree[0].split("&uid=");
+	//console.log(uid);
+	document.getElementById("uid").innerText = uid[1];
+	var uname = uid[0].split("?uname=");
+	//console.log(uname);
+	document.getElementById("uname").innerText = uname[1];
+	
+</script>
+</html>

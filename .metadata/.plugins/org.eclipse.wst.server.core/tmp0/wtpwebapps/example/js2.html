@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트2-이벤트핸들링 (고수의여정2)</title>
+</head>
+<body>
+	<!--onchange="" select는 이 핸들링씀 -->
+이메일 : <input type="text" id="email">
+<!-- onchange : 사용자가 선택 또는 값이 변화 되었을때 바로 적용이 되는 이벤트 this.value !!!!!!!!-->
+<select id="email2" onchange="abc(this.value)">
+	<option value="">직접입력</option>
+	<option value="naver.com">네이버</option>
+	<option value="nate.com">네이트</option>
+	<option value="gmail.com">구글</option>
+</select>
+<br><br>
+<input type="hidden" id="money" value="10000"><!-- 상품의 본 가격 hidden으로 숨겨놓음 -->
+수량 : <select id="ea" onchange="bbb(this.value)"> <!--select는 왠만하면 this.value씀 -->
+		<option value="1">1EA</option>
+		<option value="2">2EA</option>
+		<option value="3">3EA</option>
+</select>
+<br><br>
+최종 가격 : <div id="total">10000</div>
+<script>
+	function abc(e){ //이벤트 핸들링 함수
+		//console.log(e);
+		var aa = document.getElementById("email");
+		aa.value = e;
+	}
+	function bbb(z){
+		//console.log(z);
+		var aa = document.getElementById("money").value; //1개당 실제 본 가격
+		var bb = document.getElementById("total"); //input select이런거 말곤 value 못집어넣음
+		var sum = Number(aa)*Number(z); //실제 가격 * 수량 = 소비자가 내야할 돈
+		bb.innerText = sum; //해당 태그 안에 문자로 출력시켜주는 것 (기존 데이터 innerText,innerHtml 둘다 사라짐)
+	}
+</script>
+</body>
+</html>
