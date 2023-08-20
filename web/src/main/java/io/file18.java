@@ -1,12 +1,7 @@
 package io;
 
 import java.io.FileWriter;
-import java.io.*;
-import java.util.*;
-
-
-
-
+import java.util.Scanner;
 /*
   수욱제
   Scanner를 이용하여 총 10개의 숫자를 입력합니다!
