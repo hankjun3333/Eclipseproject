@@ -13,21 +13,21 @@
 결제하실 금액 : <span id="total">0</span>원
 </body>
 <script>
-	function abc(e){ //전체 선택시 핸들링이 주요 관건임!!
+	function abc(e){
 		//console.log(e);
-		var w = 1;
-		totalsum = 0;
+		var w=1;
 		while(w<=4){
 			document.getElementById("c"+w).checked = e;
-			if(e ==true){
+			w++;
+		}
+		totalsum = 0;
+		w=1;
+		while(w<=4){
+			if(document.getElementById("all").checked==true){
 				totalsum += Number(document.getElementById("c"+w).value);
-			}
-			else if(totalsum != 0){
-				totalsum -= Number(document.getElementById("c"+w).value);
 			}
 			w++;
 		}
-		document.getElementById("total").innerText = totalsum;
 	}
 	var totalsum =0;
 	function bbb(val,ck){

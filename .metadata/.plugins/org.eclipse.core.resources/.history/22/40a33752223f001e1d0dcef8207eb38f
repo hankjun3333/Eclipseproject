@@ -27,7 +27,6 @@
 			}
 			w++;
 		}
-		document.getElementById("total").innerText = totalsum;
 	}
 	var totalsum =0;
 	function bbb(val,ck){
