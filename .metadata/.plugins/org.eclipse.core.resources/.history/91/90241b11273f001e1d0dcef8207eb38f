@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이것은 숙제이올시다 (프론트단)</title>
+</head>
+<body>
+수량 
+<select>
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+</select>
+</body>
+</html>
