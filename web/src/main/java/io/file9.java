@@ -1,8 +1,6 @@
 package io;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.*;
+import java.io.*;
 import org.apache.catalina.tribes.util.Arrays;
 
 //FileReader, FileWriter, Buffered : 파일을 읽고,쓰기 (문서에 많이 사용) - 아스키

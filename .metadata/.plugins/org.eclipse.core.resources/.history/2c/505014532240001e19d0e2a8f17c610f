@@ -1,0 +1,31 @@
+package example;
+/* 
+해당 buffer.txt의 파일을 읽어들인 후 배열로 내용을 저장 후
+짝수 배열 값만 출력시키는 프로세서를 제작하시오. 
+(2번줄 , 4번줄 데이터 출력) -- BufferedReader 버전
+*/
+public class file2 {
+
+	public static void main(String[] args) {
+		try {
+			data2 d = new data2();
+			d.abc();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+}
+
+class data2{
+	public void abc() throws Exception{
+		
+	}
+}
+
+
+
+
+

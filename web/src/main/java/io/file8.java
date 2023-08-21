@@ -18,7 +18,7 @@ public class file8 {
 			new data6().abc();
 		}
 		catch(Exception e){
-			System.out.println(e);
+			System.out.println("파일 오류발생");
 		}
 		
 

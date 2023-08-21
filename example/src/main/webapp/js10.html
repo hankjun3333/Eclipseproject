@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>onclick 이랑 onchange 차이점이 뭣이고?</title>
+</head>
+<body>
+<form id="f" method="post" action="http://naver.com">	
+<input type="submit" value="클릭" onclick="abc()">
+</form>	
+<input type="button" value="클릭" onclick="bbb()">
+</body>
+<script>
+	
+	function abc(){
+		alert("test");
+		return false;
+	}
+	function bbb(){
+		f.submit();
+	}
+</script>
+</html>

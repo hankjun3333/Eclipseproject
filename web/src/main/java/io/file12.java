@@ -34,7 +34,8 @@ class data10 {
 		Path data1 = Paths.get("D:\\project\\web\\src\\main\\webapp\\datalist.txt"); 
 		Path data2 = Paths.get("D:\\project\\web\\src\\main\\webapp\\test\\datalist.txt");
 		  
-		Files.copy(data1, data2);		  
+		Files.copy(data1, data2);
+		  
 	  /* 파일 삭제*/
 //		Path data3 =Paths.get("D:\\project\\web\\src\\main\\webapp\\test\\datalist.txt");
 //		Files.delete(data3); 

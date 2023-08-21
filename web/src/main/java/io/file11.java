@@ -25,7 +25,7 @@ class data8{
 		//바이너리로 읽었는지 파일 속성에서 확인
 		//이미지 2mb 이상일경우 메세지 띄울용도
 		//available() : 파일 전체 크기를 확인할때 사용 !!!!!!!
-		System.out.println(is.available()); //파일 바이트 크기 확인 용량체크가능 1번
+		//System.out.println(is.available()); //파일 바이트 크기 확인 용량체크가능 1번
 		byte temp[] = new byte[is.available()]; //파일들 전체 모두 byte 배열로 적용
 		//byte temp[] = new byte[1024*10];//용량을 제한한거임 10KB로 //1024*10 10KB //1024*1024*10 이건 10MB
 		
