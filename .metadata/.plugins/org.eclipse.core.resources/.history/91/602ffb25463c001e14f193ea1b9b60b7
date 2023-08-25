@@ -1,0 +1,19 @@
+package io;
+
+import java.io.FileReader;
+
+public class file4 {
+
+	public static void main(String[] args) {
+		
+
+	}
+	
+
+}
+class data3 {
+	FileReader fr = null;
+	public void aaa() {
+		this.fr = new FileReader("D:\\project\\web\\src\\main\\webapp\\data.txt");
+	}
+}

@@ -1,0 +1,22 @@
+package io;
+
+import java.io.FileReader;
+
+//IOException + Exception + finally // IO랑 객체지향이랑 섞임
+//예외 처리 후 다시 해당 프로세서 실행했지만 그래도 오류날 경우 강제 종료방법
+//메인에서 url담고 예외처리 한 경우
+public class file3 {
+
+	public static void main(String[] args) {
+		String url = "D:\\project\\web_example\\src\\main\\webapp\\data.txt";
+		System.out.println(url);
+
+	}
+
+}
+class data2{
+	FileReader fr = null;
+	public void aaa() {
+		
+	}
+}

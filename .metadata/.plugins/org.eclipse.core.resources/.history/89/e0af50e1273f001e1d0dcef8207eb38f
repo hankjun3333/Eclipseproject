@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이것은 숙제이올시다 (프론트단)</title>
+</head>
+<body>
+수량 <select>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+</select>
+상품 금액 : <span id="price">10000</span>원
+최종 금액 : <span id="total">10000</span>원 
+</body>
+<scirpt>
+	
+</scirpt>
+</html>

@@ -1,0 +1,21 @@
+package io;
+
+public class file8 {
+
+	public static void main(String[] args) {
+		try {
+			data6 d = new data6();
+			d.abc();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+
+}
+class data6{
+	public void abc() throws Exception{
+		//FileReader + BufferedReader 파일리더가 있어야 버퍼리도를 쓸수있다!!
+		
+	}
+}

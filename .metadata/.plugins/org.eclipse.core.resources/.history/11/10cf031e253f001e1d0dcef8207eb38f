@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+고객명 : <div id="uname" name="uname"></div>
+아이디 : <div id="uid" name="uid"></div>
+<input type="checkbox" name="ck" disabled>
+</body>
+</html>

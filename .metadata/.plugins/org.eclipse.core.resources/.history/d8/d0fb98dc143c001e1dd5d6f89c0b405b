@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	파일첨부 : <input type="file"></input><br>
+	파일첨부2 : <input type="file" accept="image/*"></input> <br>
+	파일첨부3 : <input type="file" accept="video/*"></input> <br>
+</body>
+</html>

@@ -1,0 +1,43 @@
+package io;
+
+import java.io.InputStream;
+import java.io.OutputStream;
+
+//InputStream + OutputStream + flush 사용법 ( 메모리 )
+//InputStream을 2개를 활성하 시 메모리 구조 상 신규 인스턴스를 생성하지 않을겨우
+//연속으로 Stream을 활용하지 못합니다.
+public class file10 {
+
+	public static void main(String[] args) throws Exception{
+		InputStream in = System.in; //값을 집어넣는 곳
+		OutputStream os = System.out; //여긴 출력하는 곳
+		
+		int a = in.read(); //입력된 사항을 읽어들여서 int형으로 a객체에 집어넣음
+		os.write(a); //쓰기
+		
+		//os.flush();
+		os.close(); //아웃풋스트림닫기
+		in.close(); //인풋스트림닫기
+		
+		data7 aa = new data7();
+		aa.abc();
+	}
+
+}
+class data7{
+	public void abc() {
+		String data = "abcd";
+		byte[]b = data.getBytes();
+		System.out.println(Arrays.toScropg);
+		OutputStream os = system.out;
+		
+		try {
+			os.write(b,0,b.length);
+			os.flush();
+			os.close();
+		}
+		catch(Exception e) {
+			
+		}
+	}
+}

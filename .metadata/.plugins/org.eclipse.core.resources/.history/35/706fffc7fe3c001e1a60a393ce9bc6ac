@@ -1,0 +1,25 @@
+package io;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+//Stream 으로 파일로드
+public class file11 {
+
+	public static void main(String[] args) {
+		try {
+			data8 d = new data8();
+			d.abc();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+}
+class data8{
+	public void abc() throws Exception{
+		InputStream is = new FileInputStream("");
+	}
+}

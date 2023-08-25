@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js-6.html이 쏴준 것 받는 곳</title>
+</head>
+<body>
+검색어: <div id="search"></div>
+카테고리 : <div id="cate"></div>
+<input type="checkbox" id="ckid" name="ck"> 개인정보 이용 동의
+</body>
+<script>
+	var uri = decodeURI(window.location.search);
+	console.log(uri);
+	
+	var ck = uri.split("&ck=");
+	var cate = uri.split("&cate=");
+	console.log(cate); // ?search=1 이랑 2 배열 2개찍힘
+	var search = cate[0].split("?search=");
+	console.log(search);
+	
+	document.getElementById("cate").innerText = cate[1];
+	document.getElementById("search").innerText = search[1];
+	
+	if(ck == y){
+		document.getElementById("ckid").checked = true;
+	}
+	else{
+		document.getElementById("ckid").checked = false;
+	}
+</script>
+</html>

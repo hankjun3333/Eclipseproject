@@ -1,0 +1,23 @@
+package io;
+
+//Buffered를 사용해보기!!
+public class file7 {
+
+	public static void main(String[] args) {
+		try {
+			data5 d = new data5();
+			
+			d.abc();
+		}
+		catch(Exception e) {
+			
+		}
+
+	}
+
+}
+class data5 {
+	public void abc() throws Exception{
+		
+	}
+}

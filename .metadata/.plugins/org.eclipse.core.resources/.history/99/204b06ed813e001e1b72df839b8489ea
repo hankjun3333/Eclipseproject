@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js-6.html이 쏴준 것 받는 곳</title>
+</head>
+<body>
+검색어: <div id="search"></div>
+카테고리 : <div id="cate"></div>
+</body>
+<script>
+	var uri = window.location.search;
+	console.log(uri);
+	var cate = uri.split("&cate=");
+	console.log(cate);
+</script>
+</html>
