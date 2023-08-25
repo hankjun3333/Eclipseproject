@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이것은 숙제 보내는쪽(프론트)</title>
+</head>
+<body>
+<form id="f" method="get" action="./js_hw2.html" onsubmit="return abc()">
+고객명 <input type="text" id="uname" name="uname"> <br>
+아이디 <input type="text" id="uid" name="uid"> <br>
+<input type="checkbox" id="ck1" name="ck" value="y"> 개인정보 3자 제공 (선택) <br>
+<input type="hidden" id="ck2" name="ck" value="n">
+<button>이벤트 참여</button>
+</form>
+</body>
+<script>
+	function abc(){
+		if(document.getElementById("ck1").checked){
+			document.getElementById("ck2").disabled = true;
+		}
+		
+		if(f.uname.value==""){
+			alert("이름을 입력하세요");
+			return false;
+		}
+		else if(f.uid.value==""){
+			alert("아이디를 입력하세요");
+			return false;
+		}
+		else{
+			return;
+		}
+	}
+</script>
+</html>

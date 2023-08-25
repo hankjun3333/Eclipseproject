@@ -1,0 +1,205 @@
+0824-------------------------------------------
+부분 테이블만 백업 복구하는방법에 대해 한다!
+
+[특정 Table 만 백업]
+1. shop_member만 백업하겟다! 
+
+[백업] -- 특정 table 백업시 이게 약간 다름!
+mysqldum -u 사용자 -p 데이터베이스명 테이블명 > d:\파일명.sql
+
+[복구] -- 특정 table 복구 시 데이터베이스명 만 써줌된다
+mysql -u 사용자 -p 데이터베이스명 < d:\파일명.sql
+
+--필드명을 바꿀때!--
+alter table 테이블명 change 변경전필드명 바꿀필드명 타입;    //--근데 이렇게하면 notnull이 null로 바뀜 제약조건이바뀜
+alter table 테이블명 modify 바꾼필드명 타입 제약조건;    //--기본키,유니크키 있으면 같이 걸어줘야됨
+alter table 테이블명 drop column 컬럼명;   //---- 해당 컬럼만 삭제
+
+데이터베이스를 배열로 바꿔버림(json)
+
+중급 기술
+Mysql -> json 으로 변환하는 형태!
+select json_object('mname',mname) from shop_member where marea='A' limit 0,5;
+//json_object 절대 까먹지말자 데이터베이스를 배열로 바꾸는것!
+DB Ver에 따라 다르지만 
+DB Ver. 5.5 이하 에선
+select json_arrayagg(json_object('키이름',컬럼명)) from 테이블명;
+
+DB Ver. 5.5 이상 에선
+select json_object('키이름',컬럼명) as 대표키명 from 테이블명;     --- 대표키가 생성되면서 json 형태로 변환! 대표키로 전달해줘야됨!
+
+<암호화 기술 - 보안 사용법> 셋팅시 자리수
+1.Base64 (잘안씀) -db v5.1버전에 없지만 v5.6부터사용가능 있음 
+암호화 방법 : select to_base64('비번') => 복호화 select from_base64('암호화된 base64코드');
+
+2.MD5 select md5('a123456');
+암호화 : select md5('값');
+
+SHA1 - default 암호화 - 32형태
+암호화 방식 : select sha1('비번값');
+
+SHA2 -Database 환경설정 후 사용을 하게 되는데 암호화 비트는 64,128,256,512
+암호화 방식 : select sha2('값',256) ;
+
+AES
+HASH
+
+Mysql, Mariadb 자체 암호화기술 password 암호화 기술
+암호화 : select password('값'); --- 데이터베이스 자체 암호화 이것도 복구하기 힘듬
+
+크기 설정시 타이트하게 잡아줘야함
+
+select max(필드명) from 테이블명;  : 해당 필드의 최대값을 출력
+select min(필드명) from 테이블명;  : 해당 필드의 최소값을 출력
+max() : 최대
+min() : 최소
+
+집에가서 필드 추가하고 데이터 별도로 집어넣는 것 연습하기!! - 점심때도 갠찬!
+
+활용 실전
+1. mysql 사용자 접속 정보 
+db 이름 green_shop [green/g123456] [green_jn/g123456]
+
+2. http://mekeyace.kbsn.or.kr/user_shop.zip 다운로드
+해당 엑셀 시트를 확인하여 테이블 및 데이터 미러링 작업 시작!
+
+단,회원테이블에서 패스워드는 password 형태로 암호화 되도록 합니다!
+
+3. 해당 데이터베이스 중 고객 리스트 테이블과 상품테이블을 백업합니다.
+고객리스트 테이블 : person.sql
+상품테이블 : product.sql
+
+
+4.동기화 서버에 복원시켜놓는다
+mysql -h 파트너 ip -u 사용자명 -p 데이터베이스명 < 경로 green.sql
+
+
+create view v_basket as select a.mid,a.mname,b.pcode,c.mname,b.bea,c.pprice,c.psale_per,c.psale_pri,c.pdate from gmember as a join gbasket as b join product_list as c where a.mid=b.mid and b.pcode=c.pcode;
+
+
+alter table 테이블명 change 변경전컬럼명 변경후컬럼명 자료형 (null구분) key형태;
+간단하게 확인만 하는 임시테이블이 있다!
+with 속도가 진짜 빠름 [with - 임시 테이블] -> 메모리를 활용하여 빠르게 데이터를 확인할 때
+with 임시테이블명 as (select 필드명1,필드명2 from 실제테이블명) select 필드명1 from 임시테이블명 where mname='김한수'; 도 가능
+with 임시이름 as(select mid,mname from gmember) select mname from 임시이름;
+
+고객정보 나이 젤만은 사람 모두 출력 select 안에 select
+select * from gmember where mage=(select max(mage) from gmember);
+
+[select 안에 select 형태]
+ex) 나이 젤만은 사람 모든 정보 출력!
+select * from 테이블명 where 필드명 = (select max(필드명) from 테이블명);
+
+[select 에서 as 를 이용하여 where절에 사용 가능함]
+select 필드명, (필드명*필드명) as 가상이름 from 테이블명 order by 가상이름 desc;
+select mname, (bea * bprice) as total from buy_list order by total desc;
+
+[조인해서 total값 까지 구한 방법]
+select a.mid,a.mname,b.mtel,a.bea,a.bprice,(a.bea *a.bprice) as total from buy_list as a join gmember as b where a.mid=b.mid;
+
+[select안에 select+join 형태]
+select a.필드명1,a.필드명2, from 테이블명 as a join (select max(필드명) as top from 같은테이블명) as b where a.필드명=b.필드명;
+select a.mname,a.bprice,b.top from buy_list as a join (select max(bprice) as top from buy_list) as b where a.bprice=b.top;
+
+
+
+package javatest;
+
+public class java4 { //한번 public 만들어졌으면 외부에는 public을 못쓴다! 클래스 이름이 파일명이랑도 같아야한다!!!
+	
+	int a,b =0;
+	public void java1() {
+		this.a = 20;
+		this.b = 30;
+		java2(); //같은 클래스 에서 해당 메소드로 실행 시켜줌 인자값 태워서도 가능
+	}
+	
+	public void java2() {
+		int sum = this.a + this.b;
+		System.out.println(sum);
+	}
+}
+
+class java5{
+	//이건됨
+}
+
+
+
+package javatest;
+
+public class java3 {
+
+	public static void main(String[] args) {
+		new java4().java1();
+		
+
+	}
+
+}
+
+
+package javatest;
+
+
+//기본 구조 4가지
+//this : 외부 class 에서 사용가능 main에선 this 못씀
+
+class abc{
+	String data = ""; // 일반변수
+	static String data2 = ""; //메모리 변수 메모리에 올려놓음
+	int number = 100;
+	int aa,bb,cc =0; // 기본값 적용
+	final String adata = "이순신"; //상수라서 값 못바꿈 필드값 못바꿈
+	
+	public abc() { //즉시 실행 메소드
+		this.data = "20";
+		this.data2 = "30"; 
+		System.out.println(this.data);
+	}
+	public void data() { //일반 메소드
+		String user = "홍길동";
+		System.out.println(user);
+		System.out.println(this.aa);
+		System.out.println(this.bb);
+		System.out.println(this.cc);
+	}
+	public static void data2() { //메모리 등록 메소드
+		String user2 = "이순신";
+		System.out.println(user2);
+	}
+	String data3(int a, int b) { //return 메소드 파라미터로 받을땐 int로 받을수있으나 return 할떈 string으로 변환필요
+		int sum = a+b;
+		this.data2 = String.valueOf(sum); //숫자를 - > 문자로 변환  Integer.toString??
+		//Integer.toString(sum);
+		return data2;
+	}
+	public int data4(String a , String b) { //void가 있는건 리턴 x
+		int sum = Integer.parseInt(a) + Integer.parseInt(b); //문자를 숫자로 변환
+		return sum;
+	}
+}
+
+package javatest;
+
+
+/* 초급 class + method 관련 활용 (java2)랑 연관 */
+public class java1 {
+
+	public static void main(String[] args) {
+		abc a =new abc(); // 인스턴스 생성하면서 바로 실행됨 즉시 실행메소드도 작동하며 , 객체 + 인스턴스 작동됨
+		a.aa = 10;
+		a.bb = 20;
+		a.cc = 30; //메인에서 해당 외부 클래스 필드 변수에 값을 적용 
+		a.data(); //변수 만들어서 실행 일반 메소드 작동
+		abc.data2(); //메모리 변수라서 바로 실행
+		System.out.println(a.number); //외부 클래스에 있는 필드를 가져오는 방법 인스턴스를 생성해서 a.변수값 가져오면됨
+		String result = a.data3(100,200); //외부클래스 return은 무조건 변수로 받아야됨
+		System.out.println(result);
+		
+		int call = a.data4("500", "500"); //return 숫자형으로 반환
+		System.out.println(call);
+	}
+
+}
+

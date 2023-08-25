@@ -1,0 +1,66 @@
+0825------------------------------------------------------
+오전에 반복문끝내고
+더블반복문까지 끝낸다
+외부클래스 받는쪽을 먼저 셋팅을 하면 
+해당 메소드 호출시 자료형을 바로 알수가 있다!
+
+//외부클래스,인스턴스 필드에 올려놓는다!!!!!
+import java.util.*; 라이브러리는 이렇게!
+스캐너 - db에 저장시킬려고한다.
+다음주 월요일 부터는 게시판을 한다!
+
+
+
+공지
+카페 24 가입해놓자!
+8월 30일 부터 9월 1일까지 사이에 결제 실서버 필요
+9월 11~ 9월 15일 상담 가급적 빠르게 끝내고 오자
+10월 4일~10월 8일 - 증명사진찍어놓는게좋음
+
+
+<테이블만들자>
+create table webmail(
+widx int not null auto_increment,
+wname char(50) not null,
+wemail char(100) not null,
+wtitle char(50) not null,
+wcont text not null,
+wdate timestamp not null default current_timestamp,
+primary key(widx)
+);
+
+db 커넥션 라이브러리 설치해야 됨
+구글가세용
+Maven repository 
+mysql 치면 됨
+5.대 버전 + jar(순수자바)
+라이브러리 쩜프
+src
+webapp>web-inf-lib에 컨트롤 v 파일옮겨놓고
+적용은
+프로젝트 build path
+라이브러리 add jars에 추가하면된다!
+그리고 잘됫는지 확인은 다시 들어가서 해당 라이브러리가 없으면 적용잘댄것임
+
+<테이블 데이터 넣자>
+
+-----------------------------------------0825끝-----------
+create table data(
+didx int not null auto_increment,
+dtitle char(100) not null,
+dname char(50) not null,
+dpass char(20) not null,
+dtext text not null,
+primary key(didx)
+);
+
+
+
+
+
+
+
+
+
+
+

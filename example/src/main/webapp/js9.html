@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>랜덤(기초) random </title>
+</head>
+<body>
+	<!--
+		Math.ceil 소숫점 올림
+		Math.round 소숫점 반올림
+		Math.floor 소숫점 내림
+	 -->
+암호코드 (4자리) : <input type="text" id="num"> <!-- 각각 뽑는거임 반복문 4번돌리는 거임 -->
+<div class="box" id="box">
+	
+</div> 	 
+</body>
+<style>
+	.box{
+		width: 200px;
+		height: 80px;
+		background-image: url("./number/security_back.png");
+	}
+</style>
+<script>
+	//var no = Math.ceil(Math.random()*10); //1~10 ceil은 해당 되는 숫자 값을 소숫점 올림함 0.1 => 1
+	//var no = Math.floor(Math.random()*10); //0~9 소숫점 절삭!
+	var no = Math.round(Math.random()*10); //0~10 0.5이상이면 반올림
+	//console.log(no);/
+	
+	var f;
+	var sc = "";
+	var sc2 = "";
+	for(f=1; f<=4; f++){
+		sc = Math.floor(Math.random()*10);
+		sc2 += sc;
+		
+		//이런게 보안 코드 숫자 0~9까지 순서대로 만들어서 받아야 함 no7.png 이면 7번이미지
+		var img = "./number/no"+sc+".png";
+		document.getElementById("box").innerHTML += "<img src=" + img+">";
+	}
+	document.getElementById("num").value =sc2;
+</script>
+</html>
