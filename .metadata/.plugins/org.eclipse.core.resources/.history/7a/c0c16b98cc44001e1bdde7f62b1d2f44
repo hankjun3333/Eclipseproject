@@ -1,0 +1,54 @@
+package javatest;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.*;
+
+public class work4 {
+
+	public static void main(String[] args) {
+		try {
+			new check().membership();
+			
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+}
+class check{
+	Scanner sc = null;
+	Connection ct = null;
+	String insert = null;
+	public void membership() throws Exception{
+		this.sc = new Scanner(System.in);
+		dbconfig db = new dbconfig();
+		this.ct = db.info();
+		System.out.println("1.일반회원은 - 일반" + "\n" + "2.사업자 회원은 - 사업자");
+		String client_ck = sc.nextLine().intern();
+		
+		if(client_ck == "일반") {
+			this.insert = "insert into client values()";
+			PreparedStatement ps = ct.prepareStatement(this.insert); //데이터 다다다닥 쳐주는 애임
+			int oksign = ps.executeUpdate();
+		}
+		else if(client_ck == "사업자") {
+			this.insert= "insert into b_client values()";
+			PreparedStatement ps = ct.prepareStatement(this.insert); //데이터 다다다닥 쳐주는 애임
+			int oksign = ps.executeUpdate();
+		}
+		else {
+			System.out.println("일반 또는 사용자 라고 입력해주세요!");
+		}
+		
+		//db문법구간
+		
+	}
+}
+
+
+
+
+
+

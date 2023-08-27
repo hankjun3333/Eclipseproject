@@ -1,0 +1,33 @@
+package example;
+
+import com.mysql.jdbc.Connection;
+
+import java.sql.DriverManager;
+
+import com.mysql.jdbc.*;
+public class db_test1 {
+
+	public static void main(String[] args) {
+		try {
+			dbconfig db = new dbconfig();
+			db.info2();
+		}
+		catch(Exception e) {
+			
+		}
+
+	}
+
+}
+class dbconfig{
+	public static Connection info2() throws Exception{
+		String db_drive = "com.mysql.jdbc.Driver";
+		String db_url = "jdbc:mysql://localhost:3306/client";
+		String db_user = "pbj";
+		String db_pass = "a1234";
+		
+		Class.forName(db_drive);
+		Connection con = DriverManager.getConnection(db_url,db_user,db_pass);
+		return con;
+	}
+}

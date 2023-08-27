@@ -1,0 +1,42 @@
+package javatest;
+
+import java.util.*;
+
+public class work3 {
+
+	public static void main(String[] args) {
+		try {
+			data88 d = new data88();
+			d.abc();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+}
+class data88{
+	Scanner sc = null;
+	public void abc() throws Exception{
+		this.sc = new Scanner(System.in);
+		System.out.println("당신의 성별은??");
+		String data1 = sc.nextLine().intern();
+		while(true) {
+			if(data1 == "남성" || data1 == "여성") {
+				System.out.println(data1);
+				break;
+			}
+			else {
+				System.out.println("남성 또는 여성으로 입력해주세요!");
+			}
+		}
+	}
+}
+
+
+
+
+
+
+

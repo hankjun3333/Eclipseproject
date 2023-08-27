@@ -1,0 +1,47 @@
+package javatest;
+
+import java.sql.*;
+import java.util.*;
+
+import com.mysql.jdbc.Driver;
+
+public class work4 {
+
+	public static void main(String[] args) {
+		Scanner sc = null;
+		Connection ct = null;
+		try {
+			dbconfig33 d = new dbconfig33();
+			d.info();
+			ct = d.info();
+			System.out.println(ct.toString());
+			System.out.println("제목을 입력하세요:");
+			String client_ck  = sc.nextLine().intern();
+			if(client_ck =="일반고객" || client_ck =="일반") {
+				String insert = "insert into client values('0','')";
+				
+			}
+			
+			
+			
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+}
+class dbconfig33{
+	
+	public static Connection info() throws Exception{
+		String db_drive = "com.mysql.jdbc.Driver";
+		String db_url = "jdbc:mysql://localhost:3306/client";
+		String db_user = "pbj";
+		String db_pass = "a1234";
+		
+		Class.forName(db_drive);
+		Connection con = DriverManager.getConnection(db_url,db_user,db_pass);
+		return con;
+	}
+}

@@ -1,0 +1,38 @@
+package javatest;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.*;
+
+public class work4 {
+
+	public static void main(String[] args) {
+		try {
+			dbconfig db = new dbconfig();
+			db.info();
+			//System.out.println(ct.toString());
+			new check().membership();
+			
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+}
+class check{
+	Scanner sc = null;
+	Connection ct = null;
+	
+	public void membership() throws Exception{
+		this.sc = new Scanner(System.in);
+		dbconfig db = new dbconfig();
+		this.ct = db.info();
+	}
+}
+
+
+
+
+
+
