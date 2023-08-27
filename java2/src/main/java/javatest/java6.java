@@ -17,17 +17,22 @@ public class java6 {
 class data3{
 	
 	public void abc() {
-		/*
-		 * int f; for(f=1; f<=5; f++) {
-		 * 
-		 * } int w= 1;
-		 */
-		/*
-		 * while(w <= 5) { System.out.println(w); w++; }
-		 */
-		/*
-		 * do { w++; } while(w<=5);
-		 */
+		
+		  int f; for(f=1; f<=5; f++) {
+		  
+		  } 
+		  int w= 1;
+				while(w <= 5) {
+					System.out.println(w); w++; 
+					}
+		 
+		
+		  do {
+			  
+			  w++; 
+		 }
+		  while(w<=5);
+		 
 		
 		/* 응용문제2. */
 		/*
