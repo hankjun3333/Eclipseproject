@@ -19,7 +19,8 @@ class login{
 }
 class logout extends login{
 	
-	public void login(String a) {
+	public void login() {
+		
 		System.out.println("a");
 	}
 	public void login(String a , int b) {
