@@ -1,0 +1,21 @@
+package java_exp;
+
+public class java10 {
+
+	public static void main(String[] args) {
+		box1 b = new box1();
+
+	}
+
+}
+class box1{
+	public box1() {
+		System.out.println("즉시 실행 메소드 1");
+	}
+	public box1(String a) {
+		System.out.println("즉시 실행 메소드 2");
+	}
+	public box1(String a , int b) {
+		System.out.println("즉시 실행 메소드 3");
+	}
+}

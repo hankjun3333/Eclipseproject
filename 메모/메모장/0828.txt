@@ -1,0 +1,54 @@
+0828-----------------------------------------------------------------------
+설문조사 항목들은 주로 배열로 데이터를 출력함- 숙제 3
+질문사항들도 배열로 - 아름답게 코드를 짜보자!
+http://mekeyace.kbsn.or.kr/sign.zip
+보안코드 출력하는 것 매우중요 java14.번!
+숙제1.
+mariadb > data > my.ini
+[client] 쪽에다 작성
+default-character-set=binary
+
+status; 해보면 바꼈는지 확인댐!
+Client characterset: 강제로 이렇게 바꿔버리면 db복구할 수가 없음!
+한글 다꺠져버림
+
+[mysqld]
+datadir=D:/MariaDB 10.4/data
+port=3306
+innodb-page-size=65536
+innodb_buffer_pool_size=2031M
+character-set-server=utf8
+[client]
+port=3306
+plugin-dir=D:/MariaDB 10.4/lib/plugin
+default-character-set=utf8
+--이렇게 같이 해주는게 안정적--
+다시 utf8로 셋팅바꿔도 한번 박살난건 복구가 안됨
+<오늘의 교훈> my.ini 는 근처도 가지말자 망하는수가잇다!
+[mysqld] 측
+collation-server=utf8_general_ci
+init_connect=SET NAMES utf8 넣어도 박살
+-----해결방법이 잇긴잇음--------- 잇을거같음? 아니 없음ㅋ
+alter table test convert to character set utf8;
+------------------------------------------
+최초의 상태로 my.ini를 돌리면 된다!
+
+프로젝트 명 없어도 실행 하는방법
+-------------------------------------------------------------------
+web프로젝트 properties setting web - > /로 변경 -- 이건안함
+-------------------------------------------------------------------
+webapp 새로운 디렉토리 shop이란 걸 만들면 -- web.xml 에서는 경로 인식을 못하니!
+web.xml 에서도 url-pattern에서 /shop/joinok.do 라고 추가를 해줘야한다!
+오늘 한 것
+java프로젝트 java
+web/프로젝트 
+-----------상식 알아오기! 차이점 등!-----------
+//Statement
+//preparedStatement
+//callablestatement	
+----------------------------------------------------
+Connection (Model 형태로 사용) -> jPA -> JPA + Mybatis <db연결하는 것 이정도는 알아야 함>
+EJB ,JAKARTA EE, 하이버네이트 (JPQL) , 
+jsp -> JSTL -> React, Vue, Angular (2년만에 바뀜)
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" type="text/css" href="./login.css">
+    <script src="./join.js"></script>
+</head>
+<body>
+    <div id="con">
+    <div id="login">
+    <div id="login_form"><!--로그인 폼-->
+    <form id="f" method="post" action="./loginok.do" enctype="application/x-www-form-urlencoded" onsubmit="return abc()">
+        <h3 class="login" style="letter-spacing:-1px;">Sign in to Web</h3>
+
+        <p>
+            <input type="button" value="Sign in with Google" class="btn" style="background-color:#217Af0" onclick="join()">
+        </p>
+
+        <hr>
+        <label>
+        
+        <p style="text-align: left; font-size:12px; color:#666">Username</p>
+        <input type="text" placeholder="아이디를 입력" name="uid" class="size">
+        
+        <p></p>
+        </label>
+        
+		<p style="text-align: left;">
+			<input type="checkbox" value="save">아이디 저장
+		</p>
+		
+        <label>
+
+        <p style="text-align: left; font-size:12px; color:#666">Password </p>
+        <input type="password" placeholder="비밀번호를 입력" name="upw" class="size">
+        
+        </label>
+
+        <p>
+            <input type="submit" value="Sign in" class="btn" >
+        </p>
+    </form>
+    <hr>
+    <p class="find">
+        <span><a href="">아이디 찾기</a></span>
+        <span><a href="">비밀번호 찾기</a></span>
+        <span><a href="./join.html" >회원가입</a></span>
+    </p>
+    </div>
+    <div>
+    </div><!--con-->
+
+</body>
+</html>

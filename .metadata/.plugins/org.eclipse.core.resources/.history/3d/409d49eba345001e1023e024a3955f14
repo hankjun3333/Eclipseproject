@@ -1,0 +1,36 @@
+package java_exp;
+
+public class java12 {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
+class login{
+	public void login() {
+		System.out.println("부모 클래스 - 일반메소드");
+	}
+	public login(String a ) {
+		System.out.println("");
+	}
+}
+class logout extends login{
+	
+	public logout(String a) {
+		super(a);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void abc() {
+		System.out.println("로그아웃기능");
+	}
+
+	@Override
+	public void login() {
+		// TODO Auto-generated method stub
+		super.login();
+	}
+	
+	
+}
