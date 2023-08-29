@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link rel="stylesheet" type="text/css" href="./login.css">
-    <script src="./join.js"></script>
+
 </head>
 <body>
     <div id="con">
@@ -29,7 +29,7 @@
         </label>
         
 		<p style="text-align: left;">
-			<input type="checkbox" value="save">아이디 저장
+			<label><input type="checkbox" value="save" id="saveid" onclick="id_save()">아이디 저장</label>
 		</p>
 		
         <label>
@@ -52,6 +52,6 @@
     </div>
     <div>
     </div><!--con-->
-
+   <script src="./join.js?v=2" ></script> <!--하루가 지나면 소스를 추가를 해도 작동이 안되는경우가 있다!! 코드 갱신이 안됨!! --> 
 </body>
 </html>

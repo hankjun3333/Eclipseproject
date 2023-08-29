@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Storage 활용법</title>
+</head>
+<body>
+<script>
+	/*localStorage : 브라우저 종료하더라도 지속적으로 데이터 가지고있음*/
+	/*localStorage 초기화 방법은? - 삭제함!
+	window.localStorage.setItem("username",""); - 데이터 삭제
+	window.localStorage.removeItem("username"); -키까지 전체 모두삭제!
+	*/
+	var data = "홍길동";
+	window.localStorage.setItem("username",data);
+	var ea = window.localStorage.length; //지금 스토리지에 몇개의 키가 생성이 되었는지?
+	console.log(ea);
+	
+	var dataload = window.localStorage.getItem("username");
+	console.log(dataload);
+	
+	
+	/*sessionStorage : 브라우저 종료시 데이터가 삭제가 됨 (휘발성)*/
+	
+	var data2 = "실버 회원";
+	window.sessionStorage.setItem("userlevel",data2);
+	var dataload2 = window.sessionStorage.getItem("userlevel");
+	console.log(dataload2);
+	
+</script>
+</body>
+</html>

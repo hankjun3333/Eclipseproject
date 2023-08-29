@@ -13,9 +13,11 @@ public class java12 {
 
 }
 class login_ex{ // logout의 부모 클래스
+	
 	public void aa() {
 		System.out.println("로그인 메소드");
 	}
+
 }
 class logout_ex extends login_ex{ //login_ex 상속받은 자식클래스
 	@Override

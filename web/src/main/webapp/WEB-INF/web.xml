@@ -60,4 +60,19 @@
 	<servlet-name>login</servlet-name>
 	<url-pattern>/shop/loginok.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>board</servlet-name>
+	<servlet-class>web.board2</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>board</servlet-name>
+	<url-pattern>/board/writeok.do</url-pattern>
+	</servlet-mapping>
 </web-app>
+
+
+
+
+

@@ -14,6 +14,7 @@ import java.util.*;
  최종값은 (짝수이면) 6 8 10 22 48 60 96 이렇게 오름차순으로 정렬 하여 출력합니다.! 
   
  */
+/*버그 수정해보자!!  else 부분 66번줄 0829*/
 public class work5 {
 
 	public static void main(String[] args) {
@@ -39,10 +40,10 @@ class data5 extends db{
 		super.db();
 		
 		this.sc = new Scanner(System.in);
-		System.out.println("해당 데이터를 1.짝수, 2.홀수 를 선택하세요?: (기본값 - 짝수)");
+		System.out.println("해당 데이터를 1.짝수, 2.홀수 를 선택하세요?:");
 		String q1 = sc.nextLine().intern();
 		ArrayList<Integer> arr = new ArrayList<Integer>();
-		ArrayList<String> arr2 = new ArrayList<String>();
+		//ArrayList<String> arr2 = new ArrayList<String>();
 		int ck=0;
 		if(q1 =="짝수") {
 			for(String num : this.a) {
@@ -51,7 +52,7 @@ class data5 extends db{
 					arr.add(Integer.parseInt(num));
 				}
 			}
-			Collections.sort(arr); //정렬이 도데채 왜안될까
+			//Collections.sort(arr); 
 			
 		}
 		else if(q1 =="홀수") {
@@ -60,15 +61,17 @@ class data5 extends db{
 					arr.add(Integer.parseInt(num));
 				}
 			}
-			Collections.sort(arr);
+			
 		}
 		else {
 			while(true) {
 				System.out.println("값을 제대로 입력해주세요");
-				System.out.println("해당 데이터를 1.짝수, 2.홀수 를 선택하세요?: (기본값 - 짝수)");
+				System.out.println("해당 데이터를 1.짝수, 2.홀수 를 선택하세요?:");
 				q1 = sc.nextLine().intern();
+				//db();
 			}
 		}
+		Collections.sort(arr);
 		System.out.println(arr);
 		
 	}

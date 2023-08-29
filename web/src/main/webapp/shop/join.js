@@ -1,4 +1,16 @@
 
+//백엔드도 많이씀! 중요하다 매우
+/* storage : 웹 브라우저의 작은 메모리를 활용하여 특정 정보를 기억시켜놓는 공간 옛날엔 쿠키썼음
+단점은 브라우저 종류가 다를 경우는 storage값이 유 / 무로 나누어 집니다.
+window.localStorage.setItem("별명",값) : storage에 저장
+window.localStorage.getItem : storage에 있는 별명 명칭을 값을 가져올 때 사용!   
+
+
+
+, session*/
+var storage = window.localStorage.getItem("userid");
+f.uid.value = storage;
+
 /*회원가입*/
 function join(){
 	var id = document.getElementById("id");
@@ -61,6 +73,23 @@ function abc(){
 	}
 	else{
 		return ;
+	}
+}
+/*아이디 저장 기능*/ 
+function id_save(){
+	var uid = document.getElementById("uid");
+	var ck = document.getElementById("saveid");
+	if(f.uid.value==""){
+		alert("아이디를 입력하셔야만 해당 기능을 사용할 수 있습니다!.");
+		ck.checked = false;
+	}
+	else{
+		if(ck.checked == true){
+		window.localStorage.setItem("userid",f.uid.value);
+		}
+		else{
+			window.localStorage.setItem("userid","");
+		}
 	}
 }
 
