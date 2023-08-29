@@ -1,5 +1,7 @@
 package javatest;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -23,31 +25,52 @@ import java.util.Scanner;
 public class work6 {
 
 	public static void main(String[] args) {
+
+		String normal[] = {"홍길동","이순신","유관순"};
+		String silver[] = {"강감찬","장보고"};
 		Scanner sc = new Scanner(System.in);
 		String user = sc.nextLine().intern();
-		nestedclass nest = new nestedclass();
-		
+		n_parent np = new n_parent();
+		np.f_method(user);
+		n_parent.n_child nc = np.new n_child();
+		//nc.abc(user);
 	}
 
 }
+
 abstract class father{
-	
 	String u_name = "";
 	public abstract void f_method(String a);
 }
-
-class nestedclass extends father{
-
+class n_parent extends father{
+	String normal[] = {"홍길동","이순신","유관순"};
+	String silver[] = {"강감찬","장보고",""};
+	
 	@Override
 	public void f_method(String a) {
-		
-	}
+		this.u_name = a;
+		int w=0;
+		String msg = "";
+		while(w<normal.length) {
+			if(this.u_name == normal[w]) {
+				//System.out.println("일반회원입니다.");
+				msg = "일반회원입니다.";
+			}
+			else if(this.u_name ==silver[w]) {
+				//System.out.println("실버 회원입니다");
+				msg = "실버 회원입니다.";
+			}
+			w++;
+		}
+		new n_child().abc(msg);
 
+	}
 	class n_child{
-		
+		public void abc(String a) {
+			System.out.println(a);
+		}
 	}
 }
-
 
 
 

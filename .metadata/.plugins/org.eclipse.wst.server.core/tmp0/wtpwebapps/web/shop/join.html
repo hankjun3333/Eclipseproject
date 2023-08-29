@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" type="text/css" href="./join.css">
+    <script src="./join.js"></script>
+</head>
+<body>
+    <div id="con">
+    <div id="login">
+    <div id="login_form"><!--로그인 폼-->
+    <form id="f" method="post" action="./joinok.do">
+        <h3 class="login" style="letter-spacing:-1px;">Sign up to Web</h3>
+        <hr>
+        <!-- <span>ID</span> -->
+        <p style="text-align: left; font-size:12px; color:#666">username</p>
+        <input type="text" placeholder="아이디" id="id" class="size" name="sid">
+        <p></p>
+        </label><!--아이디-->
+
+        <!-- <span>이름</span> -->
+        <p style="text-align: left; font-size:12px; color:#666">username</p>
+        <input type="text" placeholder="이름" id="name" class="size" name="sname">
+        <p></p>
+        </label><!--이름-->
+        
+        <label>
+        <!-- <span>PW</span> -->
+        <p style="text-align: left; font-size:12px; color:#666">Password </p>
+        <input type="password" placeholder="비밀번호" id="pw" class="size" name="spw">
+        </label><!--비밀번호-->
+
+        <label>
+            <!-- <span>PW</span> --> <!-- 비밀번호 확인부분에는 name 값을 달지마시오 프론트한테도 달지말라하시오-->
+            <p style="text-align: left; font-size:12px; color:#666"> </p>
+            <input type="password" placeholder="비밀번호 확인" id="pw_ck" class="size">
+        </label><!--비밀번호 확인-->
+
+        <label>
+            <!-- <span>전화번호</span> -->
+        <p style="text-align: left; font-size:12px; color:#666">Mobile Phone</p>
+            <select class="size num1" id="tel_c" name="stel_c">
+                <option value="SKT" selected>SKT</option>
+                <option value="KT" >KT</option>
+                <option value="LGT" >LGT</option>
+                <option value="알뜰폰" >알뜰폰</option>
+            </select>
+            <input placeholder="-빼고 숫자만 입력"  class="size num2" id="tel" name="stel" required>
+         </label> <!--전화번호-->
+
+
+         <label>
+                <!-- <span>이메일</span> -->
+            <p style="text-align: left; font-size:12px; color:#666">E-mail</p>
+                <input type="text" placeholder="이메일" id="mail" class="size" name="smail">
+        </label> <!--이메일-->  
+
+
+    <br>
+        <p>
+            <input type="button" value="Create Acoout" class="btn" onclick="join()">
+        </p>
+    </form>
+
+    <hr>
+    <p class="find">
+        <span><a href="signin.html" >로그인 페이지로 이동</a></span>
+    </p>
+    </div>
+    <div>
+    </div><!--con-->
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
