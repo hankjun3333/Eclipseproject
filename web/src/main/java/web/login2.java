@@ -32,7 +32,7 @@ public class login2 extends HttpServlet {
 		PreparedStatement ps = null;
 		try { //dbconfig에 exception 걸려있으므로! try catch
 			
-			Connection con = db.dbinfo();
+			Connection con = db.info();
 			
 			/* 사용자가 입력한 패스워드를 sql 문법으로 변경하는 작업*/
 			String password  = "select password('"+upw+"') as pwd"; //암호화 확인작업!
@@ -48,7 +48,7 @@ public class login2 extends HttpServlet {
 			}
 			con.close();
 			/* 본격적인 사용자 아이디와 패스워드를 database 에서 가져오는 코드임! */
-			Connection con2 = db.dbinfo();
+			Connection con2 = db.info();
 			String sql = "select * from shop where sid=?"; //데이터 한개!
 			ps = con2.prepareStatement(sql);
 			ps.setString(1, uid);

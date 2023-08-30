@@ -10,6 +10,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 
 
@@ -35,9 +36,18 @@ public class board2 extends HttpServlet {
 		String btitle = request.getParameter("btitle").intern();
 		String buser = request.getParameter("buser").intern();
 		String bpw = request.getParameter("bpw").intern();
-		String bfile_nm = request.getParameter("bfile_nm").intern();
+		//String bfile_nm = request.getParameter("bfile_nm").intern();
+		Part bfile_nm = request.getPart("bfile_nm"); //파일은 Part로 받아야 함!	
+		//System.out.println(bfile_nm.getSubmittedFileName());
+		String filename = bfile_nm.getSubmittedFileName(); //file은 part로 받아야 하고 변환 한번하고 String으로 받아줘야함!
 		String btext = request.getParameter("btext").intern();
-				
+		if(bfile_nm.getSubmittedFileName().intern() == "") {
+			
+				System.out.println("첨부파일 없음");
+		} 
+		else {
+				System.out.println("첨부파일이 있음!");
+		}
 		PrintWriter pw = response.getWriter();
 		if(btitle ==""||buser == ""|| bpw=="" ||btext=="") {
 			pw.write("<script>"
@@ -52,12 +62,12 @@ public class board2 extends HttpServlet {
 				Connection con = db.info();
 				
 				String sql = "insert into board values("
-						+ "'0','hongid',?,?,?,?,?,1,now())";
+						+ "'0','kingid',?,?,?,?,?,1,now())";
 				this.ps=con.prepareStatement(sql);
 				this.ps.setString(1, btitle);
 				this.ps.setString(2, buser);
 				this.ps.setString(3, bpw);
-				this.ps.setString(4, bfile_nm);
+				this.ps.setString(4, filename);
 				this.ps.setString(5, btext);
 				
 				int oksign = this.ps.executeUpdate();
@@ -76,8 +86,6 @@ public class board2 extends HttpServlet {
 				System.out.println(e);
 			}
 		}
-		
-	
 		/*
 		 * Part file = request.getPart("mfile"); //파일은 Part로 받아야 함!
 		 * System.out.println(file.getName()); //html name 속성이름

@@ -6,18 +6,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .fakeimg {
             height: 200px;
             background: #aaa;
         }
+        .ck-editor__editable{
+			height: 500px;
+			
+		}
     </style>
-    <link href="static/css/headers.css" rel="stylesheet">
     <script src="./board.js?v=3"></script>
+    <script src="./ckeditor/ckeditor.js"></script>
 </head>
 <body>
 <header class="p-3 bg-dark text-white">
@@ -65,7 +67,7 @@
                     <input type="file" id="file" name="bfile_nm" class="form-control-file border">
                 </div>
                 <div class="form-group">
-                    <textarea id="text" name="btext" class="form-control" rows="5"></textarea>
+                    <textarea name="btext"></textarea>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="write1()">글쓰기</button>
             </form>
@@ -74,4 +76,9 @@
 </div>
 
 </body>
+<!-- ckeditor장착 ckeditor5번대는 (TypeScript 기준) ckeditor4 (JS)-->
+<script>
+	CKEDITOR.replace("btext");
+</script>
+
 </html>

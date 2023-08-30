@@ -43,7 +43,7 @@ public class join extends HttpServlet {
 			//원래는 모듈에 쓰고 모듈걸 가져와야됨
 			try {
 				this.db = new dbconfig();
-				Connection con = this.db.dbinfo();
+				Connection con = this.db.info();
 				//System.out.println(con);
 				/*람다식 형태의 코드로 작성 !!*/
 				String sql = "insert into shop values("
