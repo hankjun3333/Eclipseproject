@@ -1,5 +1,0 @@
-//alert("test");
-
-function write1(){
-	alert("test");
-}

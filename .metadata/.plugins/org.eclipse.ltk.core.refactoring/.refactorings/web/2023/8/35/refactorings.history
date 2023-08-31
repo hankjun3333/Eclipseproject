@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;web/src/main/java/web/board2.java&apos; to &apos;board.java&apos;" description="Rename resource &apos;board2.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/web/board2.java" name="board.java" stamp="1693319966892" updateReferences="true"/>
-</session>

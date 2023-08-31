@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=example/C:\/Program Files\/Java\/jdk1.8.0_201\/jre\/lib\/rt.jar=/javadoc_location=/https:\/\/docs.oracle.com\/javase\/8\/docs\/api\/=/&lt;java.io(IOException.class[IOException" modifiers="33" timestamp="1691408278298"/>
-    <typeInfo handle="=example/C:\/Program Files\/Java\/jdk1.8.0_201\/jre\/lib\/rt.jar=/javadoc_location=/https:\/\/docs.oracle.com\/javase\/8\/docs\/api\/=/&lt;java.nio.file(Paths.class[Paths" modifiers="49" timestamp="1691408278298"/>
-    <typeInfo handle="=example/D:\/server\/apache-tomcat-8.5.85\/lib\/tomcat-coyote.jar=/javadoc_location=/https:\/\/tomcat.apache.org\/tomcat-8.5-doc\/api\/=/=/owner.project.facets=/jst.web=/&lt;org.apache.tomcat.util.net(Nio2Channel.class[Nio2Channel" modifiers="33" timestamp="1691412353385"/>
-</typeInfoHistroy>

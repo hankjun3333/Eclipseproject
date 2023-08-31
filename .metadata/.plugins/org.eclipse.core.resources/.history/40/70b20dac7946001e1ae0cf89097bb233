@@ -1,8 +1,0 @@
-//alert("test");
-var title = document.getElementById("title");
-var user = document.getElementById("user");
-var pw = document.getElementById("pw");
-var text = document.getElementById("text");
-function write1(){
-	
-}
