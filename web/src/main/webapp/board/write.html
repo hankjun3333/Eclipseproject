@@ -18,7 +18,7 @@
 			
 		}
     </style>
-    <script src="./board.js?v=3"></script>
+    <script src="./board.js?v=5"></script>
     <script src="./ckeditor/ckeditor.js"></script>
 </head>
 <body>
@@ -77,8 +77,13 @@
 
 </body>
 <!-- ckeditor장착 ckeditor5번대는 (TypeScript 기준) ckeditor4 (JS)-->
+<!--주의할점 : 어떤에디터는 id 활용 여기선 name 활용 
+
+
+ -->
 <script>
 	CKEDITOR.replace("btext");
+	CKEDITOR.config.resize_enabled = false;
 </script>
 
 </html>

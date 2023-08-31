@@ -27,6 +27,8 @@ class th4 extends Thread{
 		this.b = a; //인자값을 필드값에 넣어버림 //그럼 밑에 오버라이드 메소드는 this.b로 사용이 가능! (위에서날라온 인자값)
 		// int a  인자값 a는 셋터역할이다! this.b 를 값을 셋팅해주는 것이니까
 	}
+	
+	
 	@Override //Thread 의 메소드 run은 메인 함수 부분에서 start하면 자동으로 불러와짐
 	public void run() { // 결과값을 출력하는 부분!
 		int sum = 0;
