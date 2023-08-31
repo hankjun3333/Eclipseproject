@@ -3,6 +3,9 @@ var title = document.getElementById("title");
 var user = document.getElementById("user");
 var pw = document.getElementById("pw");
 var text = document.getElementById("text");
+
+var t = CKEDITOR.instances.btext.getData();
+console.log(t);
 function write1(){
 	if(f.title.value==""){
 		alert("제목을 입력해주세요!");
@@ -16,11 +19,14 @@ function write1(){
 		alert("비밀번호를 입력해주세요");
 		f.pw.focus();
 	}
-	else if(f.text.value==""){
+	else if(t ==""){
 		alert("내용을 입력해주세요");
-		f.text.focus();
 	}
 	else{
 		f.submit();
 	}
+	
 }
+	
+
+	/**/

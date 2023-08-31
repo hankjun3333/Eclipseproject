@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모바일 전용 웹페이지</title>
+</head>
+<body>
+[모바일 전용 input 형태]<br>
+입력 1 🤣:<input type="text"> <br><br><!-- 일반 입력 (PC,Mobile 가능) -->
+입력 2 :<input type="number"><br> <!--모바일 전용 속성! 숫자만 입력!<Mobile> -->
+입력 3 : <input type="color"> <br><br><!-- 색상 선택시 (PC,Mobile 가능) -->
+입력 4 : <input type="tel"> <br><br> <!--모바일 전용 속성! 숫자 + 기호 입력!<Mobile> -->
+입력 5 : <input type="time"><br><br> <!-- 시간 선택 P,M 가능-->
+입력 6 : <input type="date"><br><br> <!-- 날짜 선택 가능! P,M-->
+입력 7 : <input type="datetime-local"><br><br><!-- 날짜 + 시간 동시 선택가능 P,M -->
+입력 8 : <input type="week"><br><br> <!-- 몇 주차 1년 52주 까지 나옴 P,M 가능 ios작동불능-->
+입력 9 : <input type="email"><br><br><!-- 이메일 -->
+입력 10<br>
+<form oninput="sound2.value=parseInt(sound.value)">
+1번 : <input type="range" id="sound" min="1" max="10">10<br><br>
+1번 : <output for="sound" name="sound2"></output>
+<br><br>
+</form>
+입력 11 : <input type="url"> <br> <!-- 도메인,블로그 웹 경로 -->
+<br><br><br>
+입력  : <a href="tel:027222111">학원 고객센터 : 027222111</a> <br>
+👍 좋구만유
+<br><br>
+입력 12<input type="text" name="product" list="subject">
+<datalist id="subject">
+	<option value="HTML">HTML</option>
+	<option value="JSP">JSP</option>
+	<option value="JS">JS</option>
+	<option value="JAVA">JAVA</option>
+</datalist>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
