@@ -1,0 +1,23 @@
+function join1(){
+	var id = document.getElementById("id");
+	
+
+}
+
+window.onload = function(){
+	var sc ="";
+	var sc2 = "";
+	var codenum = document.getElementById("code");
+	//console.log(sc);
+	var w=0;
+	while(w<=5){
+		sc = Math.ceil(Math.random()*6);
+		sc2 += sc ;
+		w++;
+	}
+	//console.log(sc2);
+	codenum.value = sc2;
+	
+}
+
+

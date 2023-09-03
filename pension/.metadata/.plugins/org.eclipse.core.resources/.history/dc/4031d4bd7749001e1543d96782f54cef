@@ -1,0 +1,15 @@
+package m_pension;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class dbconfig {
+	
+	public static Connection info() throws Exception{
+		
+		String db_drive = "";
+		String db_url = "";
+		String db_user = "";
+		String db_pass = "";
+	}
+}

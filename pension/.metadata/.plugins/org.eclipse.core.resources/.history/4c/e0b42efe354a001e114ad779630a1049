@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<section class="subpage">
+    <form id="f" action="./join_step2.jsp" method="get">
+	    <div class="member_agree">
+	    <p>회원가입 약관동의</p>
+		   <ol class="agree_ol">
+		   <li><label><input type="checkbox" id="a1" name="a1" class="ckbox" onclick="abc()"> 이용약관의 동의</label><span class="agree_info">[자세히 보기]</span></li>
+		   <li><label><input type="checkbox" id="a2" name="a2" class="ckbox" onclick="abc()"> 개인정보 수집의 동의</label><span class="agree_info">[자세히 보기]</span></li>
+		   <li><label><input type="checkbox" id="a3" name="a3" class="ckbox" onclick="abc()"> 개인정보 제3자 제공 동의</label><span class="agree_info">[자세히 보기]</span></li>
+		   <li><label><input type="checkbox" id="a4" name="a4" class="ckbox" onclick="abc()"> 개인정보 위탁제공 동의</label><span class="agree_info">[자세히 보기]</span></li>
+		   <li><label><input type="checkbox" id="a5" name="a5" class="ckbox" onclick="abc()"> 마케팅 활용 동의 (선택)</label><span class="agree_info">[자세히 보기]</span></li>
+		   <li><label><input type="checkbox" id="all" name="all" class="ckbox" onclick="all_ck(this.checked)"> 위 약관에 모두 동의 합니다.</label></li>
+		   </ol>
+	    <div class="member_agreebtn" onclick="agree1()">기본정보 등록하기</div>
+	    </div>
+    </form>
+    <script src="./js/agree.js?v=3">
+    
+    /*
+    function agree1(){
+    	var w = 1;
+    	
+    	
+    	여기서 f.submit get요청만들어가면 join_step2.jsp
+    	에서 uri 보면은 길이가 틀리거든??
+    	이용약관 체크하고 들어가서 spilit("all")
+    	해보면 배열 5개인가 4개나오는데
+    	
+    	강제접근해서step2 들어가면 
+    	spilit("all") 이거하면 배열길이가 1이라서
+    	배열길이가 1일때 location.href=""이렇게 뒤로 보내면됨
+    	step_join 여기서 value값이용함?노노 그냥 name만 붙혀서
+    			f,.submit 떄렷는데 왜 서브밋이 작동이안하지
+    			서블릿? 노노 서브밋때리고 jsp 경로로받음
+    	
+    	var ischeck = true;
+    	while(w<=5){
+    		if(document.getElementById("a"+w).checked == false){
+    			ischeck = false;
+    		}
+    		else{
+    			ischeck = true;
+    		}
+    	}
+    	
+    	
+    	if(!ischeck){
+    		alert("모두 체크해주세요.");
+    	}
+    	else{
+    		f.submit();
+    	}
+    }
+    */
+    </script>
+</section>

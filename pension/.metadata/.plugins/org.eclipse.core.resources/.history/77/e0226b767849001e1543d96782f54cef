@@ -1,0 +1,47 @@
+package m_pension;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class join_ok extends HttpServlet {
+	PrintWriter pw = null;
+	dbconfig db  = null;
+	private static final long serialVersionUID = 1L;
+
+    public join_ok() {
+        super();
+       
+    }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		String pid = request.getParameter("pid");
+		String pname = request.getParameter("pname");
+		String ppass = request.getParameter("ppass");
+		String pemail = request.getParameter("pemail");
+		String ptel = request.getParameter("ptel");
+		
+		pw = response.getWriter();
+		if(pid == ""|| pname==""||ppass==""||pemail==""||ptel=="") {
+			pw.write("<script>alert('정보가 입력안됬어요');history.go(-1);</script>");
+		}
+		else {
+			try {
+				this.db = new dbconfig();
+				Connection con123= db.info();
+			}
+			catch(Exception e) {
+				
+			}
+		}
+	
+	
+	}
+
+}

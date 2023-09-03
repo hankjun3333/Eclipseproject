@@ -1,0 +1,20 @@
+var userid = document.getElementById("userid");
+var userpw = document.getElementById("userpw");
+function login1(){
+	if(f.userid.value==""){
+		alert("유저 아이디를 입력해주세요");
+		return false;
+	} 
+	else if(f.userpw.value==""){
+		alert("유저 비밀번호를 입력해주세요");
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+function id_save(e){
+	console.log(e);
+		
+	
+}

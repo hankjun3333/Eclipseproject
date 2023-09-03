@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<section class="subpage">
+    <form id="f" action="./join_step2.jsp" method="get">
+    <div class="member_agree">
+    <p>회원가입 약관동의</p>
+	   <ol class="agree_ol">
+	   <li><label><input type="checkbox" id="a1" class="ckbox" onclick="abc()"> 이용약관의 동의</label><span class="agree_info">[자세히 보기]</span></li>
+	   <li><label><input type="checkbox" id="a2" class="ckbox" onclick="abc()"> 개인정보 수집의 동의</label><span class="agree_info">[자세히 보기]</span></li>
+	   <li><label><input type="checkbox" id="a3" class="ckbox" onclick="abc()"> 개인정보 제3자 제공 동의</label><span class="agree_info">[자세히 보기]</span></li>
+	   <li><label><input type="checkbox" id="a4" class="ckbox" onclick="abc()"> 개인정보 위탁제공 동의</label><span class="agree_info">[자세히 보기]</span></li>
+	   <li><label><input type="checkbox" id="a5" class="ckbox" onclick="abc()"> 마케팅 활용 동의 (선택)</label><span class="agree_info">[자세히 보기]</span></li>
+	   <li><label><input type="checkbox" id="all" class="ckbox" onclick="all_ck(this.checked)"> 위 약관에 모두 동의 합니다.</label></li>
+	   </ol>
+    <input type="button" class="member_agreebtn" value="기본정보 등록하기" onclick="agree1()"></div>
+    </div>
+    </form>
+    <script src="./js/agree.js?v=2">
+    
+    오류나면안됨 ㅇㅇ 형 폼태크 잘못감싼거야ㅏ녀?왜?
+    /*
+    function agree1(){
+    	var w = 1;
+    	var ischeck = true;
+    	
+    	while(w<=5){
+    		if(document.getElementById("a"+w).checked == false){
+    			ischeck = false;
+    		}
+    		else{
+    			ischeck = true;
+    		}
+    	}
+    	
+    	
+    	if(!ischeck){
+    		alert("모두 체크해주세요.");
+    	}
+    	else{
+    		f.submit();
+    	}
+    }
+    */
+    
+    	
+    	
+    </script>
+</section>
