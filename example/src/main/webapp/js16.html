@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Servlet + JSON + Ajax - ajaxdata.java 와 연계!</title>
+</head>
+<body>
+<!-- Rest API는 키가 없음-->
+<!--Restful API 형태는 키가 있는 것 -->
+<!--
+	Rest - API : 데이터를 주고 받기 위한 API 형태 Json, Xml 형태로 구분 (get,post,put,petch,delete)
+	RestFul API : 보안 키가 존재하고 데이터베이스 범위도 있음, 규칙에 따른 URL이 존재함
+http://abc.co.kr/student/	
+	
+ --> 
+<table border="1">
+	<thead>
+		<tr>
+			<th>이름</th>
+			<th>성격분석</th>
+		</tr>
+		</thead>
+	<tbody id="datalist">
+		
+	</tbody>
+	
+</table>
+</body>
+<script>
+	var aj = new XMLHttpRequest();
+	aj.onreadystatechange = function(){
+		if(aj.readyState == 4){
+			if(aj.status == 200){
+				var msg = this.response;
+				//this.pw.write();
+				if(msg=="error"){
+					alert("오류 발생");
+				}
+				else if(msg=="key_error"){
+					alert("보안 키 오류 발생");
+				}
+				else{
+					var all_list = JSON.parse(msg);
+					var html = document.getElementById("datalist");
+					//console.log(all_list);
+					all_list["user_list"].forEach(function(a,b){
+
+						html.innerHTML +=` 
+						<tr>
+							<td>`+a["user_name"] +`</td>
+							<td>`+a["analize"] +`</td>
+						</tr>
+						`;
+					});
+				}
+			}
+			else{
+				alert("통신오류발생");
+			}
+		}
+	}
+	aj.open("get","./ajaxdata.do?key=a123456");
+	aj.send();
+	
+</script>
+</html>

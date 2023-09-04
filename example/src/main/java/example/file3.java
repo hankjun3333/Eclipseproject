@@ -53,10 +53,10 @@ class data3{
 			w++;
 		}
 		//코드로 파일 생성해보자
-		Files.createFile(Paths.get( "D:\\project\\example\\src\\main\\webapp\\cms_db.txt"));
+		//Files.createFile(Paths.get( "D:\\project\\example\\src\\main\\webapp\\cms_db.txt"));
 		//FileWriter로 출력해보자 비동기처리 true 잊지마시고
 		FileWriter fw = new FileWriter("D:\\project\\example\\src\\main\\webapp\\cms_db.txt",true);
-		//for in 배열반복문으로 인덱스 마다 분리해서 출력
+		//for each 배열반복문으로 인덱스 마다 분리해서 출력
 		for(String name : arr2) {
 			fw.write(name + "\n");
 			w++;

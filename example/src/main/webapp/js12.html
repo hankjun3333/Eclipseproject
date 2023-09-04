@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>JS SetTimeOut, SetInterval 응용편</title>
+</head>
+<body>
+	
+<p>setTimeout</p>
+<input type="button" value="시작" onclick="time1()">
+<input type="button" value="정지" onclick="time1_stop()">
+
+<p>setInterval</p>
+<input type="button" value="시작" onclick="time2()">
+<input type="button" value="정지" onclick="time2_stop()">
+
+</body>
+<script>
+var timer = 0; //타임 시작용
+var sto; //일시정지용 변수 꼭필요
+function time1(){
+	console.log(timer);
+	timer++;
+	sto = setTimeout(time1,1000); 
+}
+function time1_stop(){
+	clearTimeout(sto);
+}
+
+var timer2 = 0;
+var sto2;  	
+function time2(){
+	console.log(timer2);
+	timer2++;
+}	
+sto2 = setInterval(time2,1000); //문제점은 클릭안해도 작동됨
+function time2_stop(){
+	clearInterval(sto2);
+}
+function set(){
+	sto2 = setInterval(time2,1000);
+}	
+</script>
+</html>

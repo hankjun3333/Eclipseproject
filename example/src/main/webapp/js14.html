@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Ajax + setInterval, setTimeout</title> <!--실무에서 기본 -->
+</head>
+<body>
+<table border="1">
+	<thead>
+		<tr>
+		<th>
+			제목
+		</th>
+		<th>
+			신문사
+		</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>사과</td>
+			<td id="pd0"></td>
+		</tr>
+		<tr>
+			<td>복숭아</td>
+			<td id="pd1"></td>
+		</tr>
+		<tr>
+			<td>포도</td>
+			<td id="pd2"></td>
+		</tr>
+	</tbody>
+</table>
+</body>
+<script>
+	function data_load(){
+	var date = new Date().toString();
+	console.log(date);
+	var ajax = new XMLHttpRequest();
+	ajax.onreadystatechange = function(){
+		/* 0 요청에 대한 초기화가 오류발생했을경우 (초기화 확인)*/
+		/* 1: 서버에 연결됨 2: 서버에 파일을 요청 받음 3: 요청을 처리중 4: 요청에 대한 데이터 처리 완료*/
+		//console.log(ajax.onreadystate);
+		if(ajax.readyState ==4){
+			 if(ajax.status == 200){
+				//console.log(this.response);
+				var data = JSON.parse(this.response);
+				//console.log(data["adata"]); key를 찍어봐야됨
+				var f;
+				for(f=0; f<data["adata"].length; f++){
+					document.getElementById("pd"+f).innerHTML = data["adata"][f];
+				}
+			}
+			else{
+				console.log("통신 오류 발생!!");
+			}
+	    }
+	}
+	/*json 한번로드하면 갱신안해주면 못불러와짐*/
+	ajax.open("get","./data.json?v="+date); //자동갱신해줘야됨!!
+	ajax.send();
+}
+	setInterval(data_load,5000);	
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax + setInterval, setTimeout(최종편)</title>
+</head>
+<body>
+<table border="1" id="news">
+<!--<tr>
+	<td>뉴스 제목</td>
+	<td>언론사명</td>
+</tr>-->	
+	
+	
+</table>
+<!--<tr>
+	<td>뉴스 제목</td>
+	<td>언론사명</td>
+</tr>-->
+<tr id="list">
+	
+</tr>
+<script>
+	function data_load(){
+	var ajax = new XMLHttpRequest();
+	var date = new Date().toString();
+	ajax.onreadystatechange = function(){
+		if(ajax.readyState == 4){
+			if(ajax.status==200){
+				var data = JSON.parse(this.response);
+				console.log(data);
+				var w=0;
+				var htmlcode = ""; //html 코드 초기화
+				while(w<data.length){
+					htmlcode +=`
+					<tr>
+						<td>`+data[w][0] +`</td>
+						<td>`+data[w][1] +`</td>
+					</tr>
+					`;					
+					w++;
+				}
+				document.getElementById("news").innerHTML =htmlcode;	
+			}
+			else{
+				console.log("통신오류");
+			}
+		}
+	}
+	ajax.open("get","./news.json?v="+date);
+	ajax.send();
+}
+	setInterval(data_load,1000);
+</script>	
+	
+</table>
+</body>
+</html>

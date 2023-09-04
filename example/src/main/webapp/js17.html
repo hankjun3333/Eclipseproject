@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Servlet + JSON + Ajax - 외부 서버 연계</title>
+</head>
+<body>
+<table border="1">
+	<thead>
+		<tr>
+			<th>지역명</th>
+			<th>국비지원 총 인원</th>
+			<th>미 취업인원</th>
+			<th>취업인원</th>
+		</tr>
+		</thead>
+	<tbody id="datalist">
+		
+	</tbody>
+	
+</table>
+</body>
+<script>
+
+	var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function(){
+			
+		console.log(ajax.readyState);
+	if(ajax.readyState == 4){
+		if(ajax.status == 200){
+			var msg = this.response;
+			console.log(msg);
+			
+			if(msg=="keynull"){
+				alert("오류발생");
+			}
+			else{
+				var job = JSON.parse(msg);//배열
+				var html = document.getElementById("datalist");
+				console.log(job["job"][0]);
+				var w=0;
+				
+				while(w<job["job"].length){
+					html.innerHTML +=`
+						<tr>
+							<td>`+job["job"][w][0] +`</td>
+							<td>`+job["job"][w][1] +`</td>
+							<td>`+job["job"][w][2] +`</td>
+							<td>`+job["job"][w][3] +`</td>
+						</tr>
+						`;
+						w++;
+				}
+			}	
+		}
+		else{
+			alert("통신오류 발생");
+		}
+		//
+	}//web/userlist.json?callback=calldata&v=1
+}
+	ajax.open("GET","http://119.192.19.112:8081/practicehome/ajax_data.do?v=a123456");
+	ajax.send();
+</script>
+</html>

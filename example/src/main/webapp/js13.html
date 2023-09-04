@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS SetTimeout , SetInterval SKIP 응용</title>
+</head>
+<body>
+<span id="skip" style="border: 1px solid black;">
+SKIP 5
+</span>
+<script>
+	var timer = 5; // 5초후 skip 기능 관련!
+	var set;
+	function hskip(){
+		var id = document.getElementById("skip");
+		id.innerHTML = "SKIP " + timer;
+		timer--;
+		if(timer < 0){
+			clearInterval(set);
+			//location.href = "http://naver.com";
+			id.innerHTML = "광고종료";
+		}
+	}
+	set = setInterval(hskip,1000);
+</script>
+</body>
+</html>
