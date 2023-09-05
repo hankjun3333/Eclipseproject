@@ -3,9 +3,9 @@ package javatest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.util.*;
-
-import com.mysql.jdbc.Driver;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
 
 //응용편
 /*
@@ -16,13 +16,14 @@ import com.mysql.jdbc.Driver;
 public class db_test1 {
 
 	public static void main(String[] args) {
-		/*
-		 * Date today = new Date(); System.out.println(today); SimpleDateFormat date =
-		 * new SimpleDateFormat("yyyy-MM-dd"); SimpleDateFormat time = new
-		 * SimpleDateFormat("H:m:ss"); SimpleDateFormat datetime = new
-		 * SimpleDateFormat("yyyy-MM-dd H:m:ss");
-		 * System.out.println(time.format(today));
-		 */
+		
+		 Date today = new Date();
+		 System.out.println(today);
+		 SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		 SimpleDateFormat time = new SimpleDateFormat("H:m:ss");
+		 SimpleDateFormat datetime = new  SimpleDateFormat("yyyy-MM-dd H:m:ss");
+		 System.out.println(time.format(today));
+		 
 		
 		//db current_timestamp 할줄모르면,못쓰면 이거 코드로 찍어야 된다
 		//String times = new timezone().now_time(1);

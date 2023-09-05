@@ -56,6 +56,8 @@ class th2 extends Thread{
 		
 	}
 }
+
+
 class th3 implements Runnable{
 
 	public int c = 0;
