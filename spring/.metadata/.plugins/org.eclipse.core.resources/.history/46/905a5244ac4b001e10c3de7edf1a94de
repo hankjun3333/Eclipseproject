@@ -1,0 +1,11 @@
+	function ids(){
+		var sid = document.getElementById("sid");
+		if(f.sid.value==""){
+			alert("아이디를 입력하세요");
+			return false;
+		}
+		else{
+			
+		return true;
+		}
+	}

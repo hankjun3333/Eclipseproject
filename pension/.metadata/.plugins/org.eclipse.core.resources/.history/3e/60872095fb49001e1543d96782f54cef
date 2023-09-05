@@ -1,0 +1,64 @@
+function join1(){
+var id2 = document.getElementById("id");
+var name2 = document.getElementById("name");
+var pw2 = document.getElementById("pw");
+var pw_ck2 = document.getElementById("pw_ck");
+var email2 = document.getElementById("email");
+var tel2 = document.getElementById("tel");
+var code = document.getElementById("code");
+var code_ck = document.getElementById("code_ck");
+	if(f.id2.value==""){
+		alert("아이디를 입력하세요");
+	}
+	else if(f.id2.value.length<6 || f.id2.value.length>16){
+		alert("아이디를 6~16자로 입력");
+	}
+	else if(f.name2.value==""){
+		alert("이름을 입력하세요");
+	}
+	else if(f.pw2.value==""){
+		alert("비밀번호 입력");
+	}
+	else if(f.pw2.value.length<6 || f.pw2.value.length>12){
+		alert("비밀 번호를 6~12자리로 입력");
+	}	
+	else if(f.pw_ck2.value!=f.pw2.value){
+		alert("비밀번호 불일치");
+	}
+	else if(f.email2.value==""){
+		alert("이메일 입력하세요");
+	}
+	else if(f.email2.value.indexOf('@') == -1 ){
+		alert("정상적인 이메일 형식 입력바람");
+	}
+	else if(f.tel2.value==""){
+		alert("전화 번호를 입력하세요");
+	}
+	else if(f.tel.value.length<10 || f.tel.value.length>11){
+		alert("전화번호는 10~11자리 입력바람");
+	}
+	else if(f.code_ck.value != f.code.value ){
+		alert("보안코드 불일치!");
+	}
+	else{
+		f.submit();
+	}
+}
+
+window.onload = function(){
+	var sc ="";
+	var sc2 = "";
+	var code = document.getElementById("code");
+	//console.log(sc);
+	var w=0;
+	while(w<=5){
+		sc = Math.ceil(Math.random()*6);
+		sc2 += sc ;
+		w++;
+	}
+	//console.log(sc2);
+	code.value = sc2;
+	
+}
+
+

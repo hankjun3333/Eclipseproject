@@ -1,0 +1,6 @@
+package sp1;
+
+//index url 만들거임 이게 컨트롤러가 되는거임
+public class index {
+	
+}

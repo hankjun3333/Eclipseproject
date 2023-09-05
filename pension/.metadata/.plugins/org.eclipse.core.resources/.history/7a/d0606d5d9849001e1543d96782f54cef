@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+
+
+
+%>    
+    
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 상단 시작 -->
+<header>
+<ul class="top_menu">
+    <li><img src="./img/menu.svg"></li>
+    <li onclick="location.href='./index.jsp';"><a href="./index.jsp"><img src="./img/header_logo.png"></a></li>
+    <li id="userhtml" onclick="login_pop();"><img src="./img/login.svg"></li>
+</ul>
+</header>
+<form id="f" method="post" onsubmit="return login1()" action="./m_pension/m_loginok.do">
+<aside class="popup" id="popup" style="display:none;">
+	<div class="login">
+		<span class="close" onclick="pop_close();">X</span>
+		<p>MEMBER-LOGIN</p>
+		<ol>
+		<li><input type="text" id="userid" name="pid" class="login_input" placeholder="아이디를 입력하세요"></li>
+		<li><input type="password" id="userpw" name="ppass" class="login_input" placeholder="패스워드를 입력하세요"></li>
+		<li><label><input type="checkbox" class="login_check"> 자동로그인</label></li>
+		<li><input type="submit" value="로그인" class="login_btn"></li>
+		<li class="login_info">
+		<span onclick="page_location(1)">아이디 찾기</span>
+		<span onclick="page_location(2)">회원가입</span>
+		</li>
+		</ol>
+	</div>
+</aside>
+</form>
+<script src="./js/m_login.js?v=1"></script>
+<!-- 상단 끝 -->

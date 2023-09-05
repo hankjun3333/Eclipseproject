@@ -1,0 +1,10 @@
+package m_pension;
+
+public class dbconfig {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <ul>
+            <li>회사소개</li>
+            <li>제휴문의</li>
+            <li>광고문의</li>
+            <li>FAQ</li>
+            <li>개인정보취급방침</li>
+            <li>이용약관</li>
+            <li>예약관리시스템</li>
+        </ul>
+    </div>
+</section>
+</main>

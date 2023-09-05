@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 웹 페이지</title>
+</head>
+<body>
+	<img src="./1.png">
+<form onsubmit="return ids()" id="f" method="post" action="./login.do">
+아이디 : <input type="text" id="id" name="mid"><br>
+패스워드 : <input type="password" id="pw" name="mpass"><br>
+<input type="button" value="전송">
+</form>
+</body>
+<script src="./login.js?v=1"></script>
+
+</html>

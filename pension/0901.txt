@@ -1,0 +1,48 @@
+<시험내용들>
+셋팅시 빌드 패스 - add 라이브러리 servlet 3.1대// jre 말고 jdk 1.8버전 선택!
+1. 이클립스 셋팅 + db 유저생성 및 권한부여
+모바일은-ip주소 통해서 들어가야됨 localhost 모름
+
+ajax
+2.분리작업
+
+
+create table member_penson(
+pidx int not null auto_increment,
+pid char(16) not null,
+pname char(30) not null,
+ppass char(12) not null,
+pemail char(100) not null,
+ptel char(11) not null,
+pcode int(6) not null,
+ptime timestamp not null default current_timestamp,
+primary key(pidx),
+unique key(pid)
+);
+
+
+create table penson_room(
+ridx int not null auto_increment,
+roomname char(20) not null,
+roomchoice enum('1','2','3','4','5') not null default '1',
+pdate datetime not null default '0001-01-01',
+roomprice int(6) not null,
+reserve_name char(30) not null, 
+rid char(30) not null,
+rtel char(11) not null,
+pcount int(2) not null,
+email char(50) not null,
+time timestamp not null default current_timestamp,
+primary key(ridx)
+);
+
+
+
+
+
+
+
+
+
+
+

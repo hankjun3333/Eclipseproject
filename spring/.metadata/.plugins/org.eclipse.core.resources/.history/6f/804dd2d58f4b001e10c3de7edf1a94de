@@ -1,0 +1,23 @@
+package sp1;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
+//index url 만들거임 이게 컨트롤러가 되는거임
+//implements Controller - override
+public class index implements Controller{
+
+	@Override
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		String name = "홍길동"; /*이걸 뷰에 찍고 싶을때!*/
+		ModelAndView mv = new ModelAndView("./index.jsp");
+		request.setAttribute("name", name);
+		
+		return mv;
+	}
+	
+}

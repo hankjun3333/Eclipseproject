@@ -1,0 +1,74 @@
+package m_pension;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+public class join_ok extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+
+	
+	dbconfig db = null;
+	PreparedStatement ps = null;
+    public join_ok() {
+        super();
+         
+    }
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=utf-8");
+		String pid = request.getParameter("pid");
+		String pname = request.getParameter("pname");
+		String ppw = request.getParameter("ppass");
+		String pemail = request.getParameter("pemail");
+		String ptel = request.getParameter("ptel");
+		
+		PrintWriter pw1 = response.getWriter();
+		try {
+			this.db = new dbconfig();
+			Connection con = this.db.info();
+			//System.out.println(con);
+			/*람다식 형태의 코드로 작성 !!*/
+			String sql = "insert into member_penson values("
+					+"'0',?,?,?,?,?,now())"; //이런식으로 입력하는게 람다식 방식!
+			this.ps=con.prepareStatement(sql);
+			this.ps.setString(1, pid);
+			this.ps.setString(2, pname);
+			this.ps.setString(3, ppw);
+			this.ps.setString(4, pemail);
+			this.ps.setString(5, ptel);
+			int call = this.ps.executeUpdate();
+			String msg = "";
+			
+			if(call > 0) {
+				msg = "정상적으로 가입이 완료 되었습니다.";
+				this.ps.close();
+				con.close();
+			}
+			else {
+				msg = "가입이 원활하게 진행되지 않았습니다.";
+			}
+			pw1.write("<script> alert('" +msg+ "'); location.href='./login.html';</script>");
+		
+		}
+		catch(Exception e) {
+			
+		}
+		
+		
+		
+		
+		
+	}
+
+}
