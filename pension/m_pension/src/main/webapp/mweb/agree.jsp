@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <section class="subpage">
     <form id="f" action="./join_step2.jsp" method="get">
 	    <div class="member_agree">
@@ -15,5 +16,5 @@
 	    <input class="member_agreebtn" value="기본정보 등록하기" onclick="agree1()">
 	    </div>
     </form>
-    <script src="./js/agree.js?v=4"></script>
+    <script src="./js/agree.js?v=5"></script>
 </section>

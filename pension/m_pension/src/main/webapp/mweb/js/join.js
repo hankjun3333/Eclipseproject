@@ -36,8 +36,8 @@ function join1(){
 
 }
 window.onload = function(){
-	var uri = decodeURI(window.location.search);
-	console.log(uri);
+	//var uri = decodeURI(window.location.search);
+	//console.log(uri);
 	
 	var sc ="";
 	var sc2 = "";
@@ -51,7 +51,17 @@ window.onload = function(){
 	}
 	//console.log(sc2);
 	codenum.value = sc2;
-	
 }
+var fdata = sessionStorage.getItem("time");
+
+window.onload = function(){
+	var url = decodeURI(window.location.search);
+	var param = url.split("?days=");
+	if(param[1] == null || param[1]!=fdata){
+		alert("올바른접근이 아닙니다.");
+		location.href='./join_step.jsp';
+	}
+}
+
 
 

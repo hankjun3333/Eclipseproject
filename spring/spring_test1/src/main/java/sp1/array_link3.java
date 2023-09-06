@@ -29,23 +29,23 @@ public class array_link3 {
 			kk1.add(a[w]);
 			w++;
 		}
-		//System.out.println(kk1);
+
 		k.add(kk1);
-		//System.out.println(k);
+
 		int ww =0;
 		while(ww<b.length) {
 			kk2.add(b[ww]);
 			ww++;
 		}
 		k.add(kk2);
-		//System.out.println(k);
+
 		int www =0;
 		while(www<c.length) {
 			kk3.add(c[www]);
 			www++;
 		}
 		k.add(kk3);
-		//System.out.println(k);
+
 		int ww4 =0;
 		while(ww4<d.length) {
 			kk4.add(d[ww4]);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <section class="subpage">
     <div class="member_agree">
     <p>회원 기본 정보입력</p>
@@ -20,4 +21,4 @@
     </form>
     </div>
 </section>
-    <script src="./js/join.js?v=12"></script>
+    <script src="./js/join.js?v=2"></script>

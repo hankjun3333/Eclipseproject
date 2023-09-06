@@ -36,6 +36,15 @@ function abc(){
 }
 
 function agree1(){
+	var today = "";
+	var data = "";
+	today = Date.now();
+	console.log(today);
+	data = sessionStorage.setItem("time",today);
+			
+	//window.open("./join_step2.jsp?days= "+ today,"_self","");
+	
+	
 	var f =document.getElementById("f");
 	if(a1.checked==false){
 		alert("이용약관 동의를 체크하여 주세요");
@@ -53,9 +62,11 @@ function agree1(){
 		
 	}
 	else{
-		location.href='./join_step2.jsp';
+		location.href="./join_step2.jsp?days=" + today;
 		//f.submit();
 	}
+
+
 }
 
 	
