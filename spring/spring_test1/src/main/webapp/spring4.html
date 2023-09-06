@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이메일 발송 시스템</title>
+</head>
+<body>
+<form id="f" action="./spring4ok.do" method="post">
+	
+고객명 : <input type="text" name="uname"><br><br>
+받는메일 : <input type="email" name="umail" ><br><br>
+제목 : <input type="text" name="utitle"><br><br>
+내용 : <textarea name="utext"></textarea><br><br>
+<button type="submit">전송</button>
+</form>
+<script>
+	function abc(){
+		if(f.uid.value==""){
+			alert("고객명입력");
+			f.uid.focus();
+		}
+		else if(f.umail.value=="" || f.umail.value.indexOf('@')==-1){
+			alert("받는이메일입력 또는 똑바로 입력");
+			f.umail.focus();
+		}
+		else if(f.utitle.value==""){
+			alert("제목입력");
+			f.utitle.focus();
+		}
+		else if(f.utext.value==""){
+			alert("내용입력해야될걸?");
+			f.utext.focus();
+		}
+		else{
+			f.submit();
+		}
+	}
+</script>
+</body>
+</html>

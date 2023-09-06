@@ -26,6 +26,7 @@ public class webpage {
 	 vs Model (신식- String 형태로 변환 ,addAttribute 사용) :
 	 Model : 어노테이션을 사용하여 적용한다는 뜻 + 데이터를 담기 위한것
 	 View 에서 Model에 담겨진 데이터를 자동으로 바인딩 해준다는 것 (화면출력) ${}형태로
+	  
 	 * 
 	 ModelAndView : return 시 jsp는 같은 이름으로 처리를 해야함! login.jsp = login.do
 	 setViewName 을 사용하지 않을경우 webpage.xml 의 prefix 에 해당 view 경로를 적어줘야함 
