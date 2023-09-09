@@ -10,7 +10,6 @@ import java.util.LinkedList;
   ArrayList - 중복을 허용 , 순서를 유지하는 배열 형태! - 출력 위주!
   
   LinkedList - 순방향 , 역순 검색 (양방향) - 해당되는 것 게시판 검색시 편함
-  
  */
 public class array_link1 {
 
@@ -36,12 +35,14 @@ public class array_link1 {
 		LinkedList<Integer> data1 = new LinkedList<Integer>();
 		ArrayList<Integer> data2 = new ArrayList<Integer>();
 		long start = System.currentTimeMillis(); //타이머 시작!
+		
 		/*데이터 순차적 삽입형태*/
 		Integer w =0;
 		do {
 			data2.add(w);
 			w++;
 		}while(w<=10000000);
+		
 		/*값을 2 단위로 중간중간 삽입하는 형태 */
 		Integer ww = 0;
 		int no = 2;

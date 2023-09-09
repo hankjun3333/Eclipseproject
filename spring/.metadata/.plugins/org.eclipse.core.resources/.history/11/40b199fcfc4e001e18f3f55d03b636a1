@@ -1,0 +1,9 @@
+package home;
+
+import java.util.ArrayList;
+
+public class dto_member {
+	String midx,mid,mpass,memail,mtel,marea,minter,mage,mdate;
+	ArrayList<String> arr = new ArrayList<String>();
+	arr.add();
+}

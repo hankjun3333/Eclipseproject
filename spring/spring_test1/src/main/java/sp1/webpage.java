@@ -66,4 +66,9 @@ public class webpage {
 		m.addAttribute("user",names);
 		System.out.println(m.getAttribute("user"));
 	}
+	@PostMapping("/test.do")
+	public String select(HttpServletRequest req , Model m) {
+		
+		return null;
+	}
 }

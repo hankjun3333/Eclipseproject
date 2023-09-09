@@ -1,0 +1,73 @@
+package sp1;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class webpage22 {
+	@RequestMapping("test.do")
+	public String test(HttpServletRequest req, HttpServletResponse res) {
+		int point = 5000;
+		StringBuffer sb = new StringBuffer();
+		sb.append("홍길동");
+		sb.append("님 환영합니다.");
+		sb.append("적립금" + point +"원");
+		System.out.println(sb);
+		String result = sb.toString();
+		System.out.println(sb.toString());
+		
+		return null;
+	}
+	@RequestMapping("/test2.do") 
+	public String test2(HttpServletRequest req, HttpServletResponse res) {
+		int a[][][]= {
+				{
+				{1,2,3,4,5},
+				{6,7,8,9,10}
+				}
+		};
+		System.out.println(Arrays.deepToString(a));
+		String data1[] = {"a","b","c","d"}; //본 데이터는 건들지 않으니!
+		String data2[] = data1.clone(); /*한방에 복사하는 방법임!!*/
+		System.out.println(Arrays.toString(data2));
+		ArrayList<String> as1 = new ArrayList();
+		as1.add("aa");
+		ArrayList<String> as2 = (ArrayList<String>)as1.clone();
+		return null;	
+	}
+	@RequestMapping("/test3.do") 
+	public String test3(HttpServletRequest req, HttpServletResponse res) {
+		//cookie 쿠키 - 통신임
+		/*세션과 쿠키의 차이점?*/ //-0909메모장
+		Cookie data = new Cookie("product", "세탁기"); //쿠키를 굽는작업
+		Cookie data2 = new Cookie("product", "컴퓨터");
+		/*res 통신이 들어감 여기서*/
+		res.addCookie(data);
+		res.addCookie(data2);
+		/*쿠키를 불러오는 부분 test4.do*/
+		
+		return null;
+	}
+	@RequestMapping("/test4.do") 
+	public String test4(HttpServletRequest req, HttpServletResponse res) {
+		Cookie[] ck = req.getCookies(); //cookie 배열(원시형태 배열)
+		System.out.println(ck.length);
+		String cookie = ck[0].getName();
+		String cookie2 = ck[0].getValue();
+		System.out.println(cookie2);
+		return null;
+	}
+	@RequestMapping("/test5.do") 
+	public String test5(HttpServletRequest req, HttpServletResponse res) {
+		
+		
+		return null;
+	}
+}

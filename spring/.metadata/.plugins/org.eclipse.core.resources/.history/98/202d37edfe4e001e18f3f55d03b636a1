@@ -1,0 +1,8 @@
+package home;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class controller_member {
+	
+}

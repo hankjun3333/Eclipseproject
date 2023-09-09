@@ -1,0 +1,35 @@
+package home;
+//모듈부분
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+
+public class member {
+	dbconfig db = null;
+	Connection con = null;
+	PreparedStatement ps = null;
+	public ArrayList<ArrayList<String>> md_data(){
+		try {
+			this.db = new dbconfig();
+			this.con = this.db.info();
+			System.out.println(con);
+			
+		}
+		catch(Exception e) {
+			
+		}
+		
+		
+		ArrayList<ArrayList<String>> ar = new ArrayList<ArrayList<String>>();
+		dto_member dto = new dto_member();
+		dto.setMid(null);
+		
+		
+		
+		
+		return null;
+	}
+		
+}
+

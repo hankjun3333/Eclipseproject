@@ -1,0 +1,18 @@
+package home;
+
+import java.util.ArrayList;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class dto_member {
+	String midx,mid,mpass,memail,mtel,marea,minter,mage,mdate;
+	public String member_dto() {
+		ArrayList<String> ar1 = new ArrayList<String>();
+		
+		
+		return null;
+	}
+}

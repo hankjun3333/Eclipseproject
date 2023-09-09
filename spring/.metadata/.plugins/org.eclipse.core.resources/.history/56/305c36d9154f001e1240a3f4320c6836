@@ -1,0 +1,15 @@
+package home;
+
+import java.sql.Connection;
+
+public class dbconfig {
+	
+	public static Connection info() throws Exception{
+		String db_drive = "com.mysql.jdbc.Driver";
+		String db_url = "jdbc:mysql://localhost:3306/web";
+		String db_user = "hong";
+		String db_pass = "a123456";
+		
+		return null;
+	}
+}

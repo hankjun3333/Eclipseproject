@@ -1,0 +1,17 @@
+package home;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class controller_member {
+	@PostMapping("/springok.do")
+	public String member(HttpServletRequest req , HttpServletResponse res, Model m) {
+		
+		return null;
+	}
+}

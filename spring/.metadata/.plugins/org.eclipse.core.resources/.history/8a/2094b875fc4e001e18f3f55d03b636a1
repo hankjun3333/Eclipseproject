@@ -1,0 +1,14 @@
+package sp1;
+
+import java.util.ArrayList;
+
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
+public class dto_member {
+	String midx,mid,mpass,memail,mtel,marea,minter,mage,mdata;
+	
+	ArrayList<String> arr = new ArrayList<String>();
+	
+}

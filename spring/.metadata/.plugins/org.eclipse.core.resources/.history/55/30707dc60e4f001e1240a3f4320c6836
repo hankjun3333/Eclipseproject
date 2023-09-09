@@ -1,0 +1,17 @@
+package home;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class controller_member {
+	@GetMapping("/spring77ok.do")
+	public String member2(HttpServletRequest req , Model m){
+		
+		return "testtest";
+	}
+}

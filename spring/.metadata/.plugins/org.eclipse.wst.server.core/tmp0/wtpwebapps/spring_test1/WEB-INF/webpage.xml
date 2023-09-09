@@ -15,10 +15,11 @@
 		<resources location="/" mapping="/*.*"></resources>
 		
 		<beans:bean class ="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/"></beans:property>
+		<beans:property name="prefix" value="/WEB-INF/jsp/"></beans:property>
 		<beans:property name="suffix" value=".jsp"></beans:property>
 		</beans:bean>
 		
 		<beans:bean class="sp1.webpage"></beans:bean>
-		
+		<beans:bean class="sp1.webpage22"></beans:bean>
+		<beans:bean class="home.controller"></beans:bean>		
 </beans:beans>

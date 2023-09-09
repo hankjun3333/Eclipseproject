@@ -1,0 +1,16 @@
+package home;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class controller_member {
+	@RequestMapping("./spring77ok.do")
+	public String member(HttpServletRequest req , Model m) throws Exception{
+		
+		return null;
+	}
+}

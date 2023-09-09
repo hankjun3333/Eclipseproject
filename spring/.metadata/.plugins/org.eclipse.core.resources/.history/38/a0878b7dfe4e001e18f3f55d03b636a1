@@ -1,0 +1,20 @@
+package home;
+//모듈부분
+
+import java.util.ArrayList;
+
+public class member {
+
+	public ArrayList<ArrayList<String>> md_data(){
+		ArrayList<ArrayList<String>> ar = new ArrayList<ArrayList<String>>();
+		dto_member dto = new dto_member();
+		dto.setMid(null);
+		
+		
+		
+		
+		return null;
+	}
+		
+}
+
