@@ -6,21 +6,34 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class controller {
-	@RequestMapping("/sphome.do")
+	@GetMapping("/sphome.do")
 	public String member(HttpServletRequest req, Model m) {
-		ArrayList<ArrayList<String>> member = null;
+		ArrayList<ArrayList<String>> member2 = null;
+		String search = req.getParameter("search");
+		String part = req.getParameter("part");
 		try {
-			member mb = new member();
-			member = mb.mb_list();
-			req.setAttribute("member", member);			
+			if(search == null || search == "" || search=="null") {
+				member mb = new member();
+				member2 = mb.mb_list();
+			}
+			else{
+				member mb = new member();
+				member2 = mb.mb_list(search,part);
+			}
+			req.setAttribute("member", member2);
+			req.setAttribute("part", part);
+			
+						
 		}
 		catch(Exception e) {
 			
 		}
-		return "sphome";
+		return "/WEB-INF/jsp/sphome";
 	}
+
 }

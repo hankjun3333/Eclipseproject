@@ -73,7 +73,6 @@ public class user_list {
 	 2.검색어를 입력했는데 데이터베이스 값과 동일하지 않을경우
 	 3.  
 	 */
-
 	public int total_member() throws Exception{
 		//전체 가입자 수 카운팅하는 부분이 있어야함
 		//완전 별도로 뺴야됨 이건 배열이 아니니까!

@@ -70,7 +70,6 @@ f.search.value = sh[1];
  trim() => 글자 앞 뒤 공백만 삭제
  replace() => 첫번째 관련 단어만 변경
  replaceAll() = > 모든 단어만 확인하여 변경
- 
  */
 
 var word = "홍길  동님 환  영합 니다.  "; 
