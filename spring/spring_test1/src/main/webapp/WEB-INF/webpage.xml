@@ -12,8 +12,8 @@
 		">
 		
 		<annotation-driven/><!-- @Controller, @Requestmapping -->
-		<resources location="/" mapping="/*.*"></resources>
-		
+		<resources location="/" mapping="/**"></resources>
+		<resources location="/resources" mapping="/**"></resources>		
 		<beans:bean class ="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/"></beans:property>
 		<beans:property name="suffix" value=".jsp"></beans:property>

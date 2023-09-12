@@ -1,5 +1,5 @@
 package sp1;
-import lombok.*;
+import java.io.File;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -16,28 +16,46 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.util.log.UserDataHelper.Mode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class webpage2 {
 	PrintWriter pw = null;
 	
+	//0912 MultipartFile mfile <view file name값이랑 맞추어야 됨 파라미터랑! >중요!
+	@PostMapping("/fileok.do")
+	public void upload(MultipartFile mfile,HttpServletRequest req , Model m) throws Exception{ //void라서 response 못씀 io라서 throws Exception씀
+		String filename = mfile.getOriginalFilename();
+		System.out.println(filename);
+		long filesize = mfile.getSize();
+		String url = req.getServletContext().getRealPath("/fileup/") + filename ; //웹경로파악
+		
+		/*파일 저장*/
+		File f = new File(url); // 일반 IO
+		FileCopyUtils.copy(mfile.getBytes(),f); // FileCopyUtils 스프링 전용 파일업로드 클래스 - 스트림 써도됨
+		System.out.println("업로드 파일 정상적으로 진행완료!");
+	}
+	
+	
+	
 	/*product 테이블 가져오기 - JSTL로 뷰페이지 출력 파트*/
 	@RequestMapping("/product_list.do")
 	public String pd_list(HttpServletRequest req, Model m) {
-		List<ArrayList<String>> product_data = null;	
 		
 		try {
 			//System.out.println(ct2);
 			product_list pl = new product_list();
-			product_data = pl.pd_data();
-			req.setAttribute("product_data", product_data);
+			pl.pd_data();
+			req.setAttribute("product_data", pl.pd_data());
+			
+			int listea = pl.data_ea();
+			req.setAttribute("listea", listea);
 			
 		}
 		catch(Exception e) {
@@ -45,6 +63,97 @@ public class webpage2 {
 		}
 		return "/WEB-INF/jsp/product_list";
 	}
+	
+	/*상품 삭제파트*/
+	@GetMapping("/product_delete.do")
+	public void del_product(HttpServletRequest req, HttpServletResponse res) {
+		PrintWriter pw = null;
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/html;charset=utf-8");
+		try {
+			this.pw = res.getWriter();
+			String no = req.getParameter("idx");
+			product_delete pd = new product_delete();
+			int result = pd.delete_ok(no);
+			if(result ==1) { //정상적인 sql 작동
+				this.pw.write("<script>"
+						+ "alert('정상적으로 삭제 되었습니다.');"
+						+ "location.href='./product_list.do';"
+						+ "</script>");
+			}
+			else { // 0 sql문법이 올바르게 작동되지 않는경우!
+				this.pw.write("<script>"
+						+ "alert('올바른 데이터 값이 아님');"
+						+ "location.href='./product_list.do';"
+						+ "</script>");				
+			}
+			
+		}
+		catch(Exception e) {
+			this.pw.write("<script>"
+					+ "alert('잘못된 접근방식 입니다.');"
+					+ "history.go(-1);"
+					+ "</script>");
+		}
+		
+	}
+	//jsp 내용을 이제 받을거임( 수정된 내용! )
+	@PostMapping("product_modifyok.do")
+	//페이지가 잇으면 res안써도되는데 컨트롤에서 view없는상태에서 진행하는건 res잇어야함
+	public String ok_modify(HttpServletRequest req, HttpServletResponse res) {
+		PrintWriter pw = null;
+		res.setContentType("text/html;charset=utf-8");
+		String pidx = req.getParameter("pidx");
+		String pcode = req.getParameter("pcode");
+		String pname = req.getParameter("pname");
+		String pmoney = req.getParameter("pmoney");
+		String psale = req.getParameter("psale");
+		String puse = req.getParameter("puse");
+		
+		product_ok ok = new product_ok();
+		int result = ok.modify_sql(pidx, pcode, pname, pmoney, psale, puse);
+		String msg = "";
+		if(result==1) { //ok사인 난거임
+			msg = "<script>alert('정상적으로 수정완료됨');"
+					+ "location.href='./product_list.do';"
+					+ "</script>";
+		}
+		else {
+			msg = "<script>alert('수정 내용이 올바르지않음');"
+					+ "history.go(-1);"
+					+ "</script>";
+		}
+		try {
+			this.pw = res.getWriter();
+			this.pw.write(msg);
+		}
+		catch(Exception e) {
+			System.out.println("올바른 값이 전달되지않음!");
+		}
+		return null;
+	}
+	
+	
+	//상품 수정파트 !!! 여긴 JSTL로 할거임!
+	@GetMapping("/product_modify.do")
+	public String view_product(HttpServletRequest req, Model m) {
+		String idx = req.getParameter("idx");
+		try {
+			product_modify pm  = new product_modify();
+			ArrayList<String> data = pm.view_ok(idx);
+			//System.out.println(data);
+			m.addAttribute("data",data);
+			System.out.println(data);
+		}
+		catch(Exception e) {
+			System.out.println("잘못접근!");
+		}
+		
+		return "/WEB-INF/jsp/product_modify";
+	}
+	
+	
+	
 	
 	@PostMapping("/spring1ok.do")
 	//spring1.html 에 넘어온 값을 view를 통해서 핸들링하는 방법!
@@ -206,8 +315,6 @@ public class webpage2 {
 		//return null;
 		return "/WEB-INF/jsp/member_list";
 	}
-	
-	
 	
 }
 

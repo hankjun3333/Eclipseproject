@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Spring 파일 업로드 기능 + ECMAScript</title>
+</head>
+<body>
+<form id="frm" method="post" action="./fileok.do" enctype="multipart/form-data">
+파일 첨부 : <input type="file" name="mfile"><br>	
+<input type="button" value="파일 전달" class="btn">	
+</form>
+</body>
+<!-- ES5, ES6 onclick,onsubmit 등 다없어짐 -->
+<script>
+/*document.querySelector("#id도 되고 .class도 됨") :
+.addEventListener("click",function(){} : 이벤트를 핸들링 하는 함수
+reset , click , change submit 등 이런 모든 것들은 핸들링 함 keydown,keyup,등등 
+*/
+document.querySelector(".btn").addEventListener("click",function(){
+	if(frm.mfile.value==""){
+		alert("파일 첨부를 해 주셔야 합니다.");
+	}
+	else{
+		frm.submit();
+	}
+});		
+</script>
+</html>

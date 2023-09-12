@@ -26,7 +26,8 @@ if(part != null && part.equals("tel")){
 	<th width="20%">아이디</th>
 	<th width="30%">이메일</th>
 	<th width="20%">전화번호</th>
-	<th width="20%">나이</th>
+	<th width="10%">나이</th>
+	<th width="10%">수정/삭제</th>
 </tr>
 </thead>
 <tbody>
@@ -46,6 +47,10 @@ int w= 0;
 <td><%=mbdata.get(w).get(2) %></td>
 <td><%=mbdata.get(w).get(3) %></td>
 <td><%=mbdata.get(w).get(4) %></td>
+<td>
+<input type="button" value="수정" onclick="mb_modify('<%=mbdata.get(w).get(0)%>')">
+<input type="button" value="삭제" onclick="mb_delete('<%=mbdata.get(w).get(0)%>')"> 
+</td>
 <%
 	w++;
 	} while(w<mbdata.size());
@@ -60,7 +65,7 @@ int w= 0;
 <option value="tel" <%=s%>>전화번호</option>
 </select>
 <input type="text" name="search">
-<input type="submit" value="검색">
+<input type="submit" value="검색" >
 <input type="button" value="전체 목록" onclick="all_data()">
 </form>
 </body>
@@ -77,6 +82,14 @@ function abc(){
 }
 function all_data() {
 	location.href="./sphome.do";
+}
+function mb_delete(idx){
+	if(confirm('정말삭제할거임? 이거복구안됨')){
+		location.href="./sphome_delete.do?idx=" + idx;	
+	}
+}
+function mb_modify(idx){
+	location.href="./sphome_modify.do?idx="+idx;
 }
 </script>
 </html>
