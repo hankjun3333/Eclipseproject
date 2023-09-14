@@ -23,5 +23,4 @@ public class mb_delete {
 		this.con.close();
 		return oksign;
 	}
-	
 }

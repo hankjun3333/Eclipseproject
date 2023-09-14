@@ -68,6 +68,10 @@ int w= 0;
 <input type="submit" value="검색" >
 <input type="button" value="전체 목록" onclick="all_data()">
 </form>
+
+<form id="insert" action="./sphome_insert.do" method="get">
+	<input type="button" value="정보 저장!" onclick="insert_data()">
+</form>
 </body>
 <script>
 function abc(){
@@ -90,6 +94,9 @@ function mb_delete(idx){
 }
 function mb_modify(idx){
 	location.href="./sphome_modify.do?idx="+idx;
+}
+function insert_data(){
+	insert.submit();
 }
 </script>
 </html>

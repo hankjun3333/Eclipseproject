@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc
+		https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/"></property>
+<property name="suffix" value=".jsp"></property>
+</bean>
+<!-- 요청한 파일 만 서버에서(톰캣)사용 될 수 있도록 spring-mvc에서 조절함 -->
+<mvc:resources location="/" mapping="/*.*"></mvc:resources>
+<!-- 
+<mvc:resources location="/" mapping="/*.html"></mvc:resources>
+<mvc:resources location="/" mapping="/*.js"></mvc:resources>
+<mvc:resources location="/" mapping="/*.css"></mvc:resources>
+ -->
+</beans>

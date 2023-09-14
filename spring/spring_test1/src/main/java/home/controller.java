@@ -15,6 +15,51 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class controller {
+	PrintWriter pw = null;
+	@GetMapping("/sphome_insert.do")
+	public String insert(HttpServletRequest req) {
+		return "/WEB-INF/jsp/sphome_insert";
+	}
+	@PostMapping("/sphome_insertok.do")
+	public void insertok_c(HttpServletRequest req,HttpServletResponse res) {
+		/*ArrayList<ArrayList<String>> member2 = null;
+		String search = req.getParameter("search");
+		String part = req.getParameter("part");*/
+		
+		res.setContentType("text/html;charset=utf-8");
+		String mid = req.getParameter("mid");
+		String memail = req.getParameter("memail");
+		String mtel = req.getParameter("mtel");
+		String mage = req.getParameter("mage");
+		
+		insertok_m io = new insertok_m();
+		int result = io.ok_insert(mid, memail, mtel, mage);
+		
+		try {
+			this.pw = res.getWriter();
+			if(result == 1) {
+				
+				this.pw.write("<script>"
+						+ "alert('데이터 정상 저장됨');"
+						+ "location.href='./sphome.do';"
+						+ "</script>");
+				//System.out.println("정상 데이터 저장");
+			}
+			else {
+				this.pw.write("<script>"
+						+ "alert('데이터 정상 저장안됨');"
+						+ "history.go(-1);"
+						+ "</script>");
+			}
+			
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		
+	}
+	
+	
 	@GetMapping("/sphome.do")
 	public String member(HttpServletRequest req, Model m) {
 		ArrayList<ArrayList<String>> member2 = null;
@@ -32,7 +77,6 @@ public class controller {
 			System.out.println(member2);
 			req.setAttribute("member", member2);
 			req.setAttribute("part", part);
-			
 						
 		}
 		catch(Exception e) {

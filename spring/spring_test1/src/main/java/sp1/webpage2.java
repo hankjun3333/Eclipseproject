@@ -28,6 +28,51 @@ import org.springframework.web.multipart.MultipartFile;
 public class webpage2 {
 	PrintWriter pw = null;
 	
+	//0914 로그인 api
+	@PostMapping("kakao_loginok.do")
+	public String kakaos(HttpServletRequest req, Model m) throws Exception{ //thread쓸거기때문에
+		String part = req.getParameter("part").intern();
+		login_etc le = null;
+		
+		if(part == "kakao") {
+			String kakao_id = req.getParameter("kakao_id");
+			String kakao_email = req.getParameter("kakao_email");
+			String kakao_nick = req.getParameter("kakao_nick");
+			le =new login_etc(kakao_id,kakao_email,kakao_nick,part); // 즉시실행하자마자 쓰레드 run을 돌릴거임 여기서 핸들링을 할거임
+			
+		}
+		else {
+			String mname = req.getParameter("mname");
+			String mpass = req.getParameter("mpass");
+			le =new login_etc(mname,mpass,"",part); 
+		}
+		le.join(); //Thread 작업이 끝날때 까지 아래 코드를 활성화 하지않음
+		
+		int result =le.result();
+		if(result ==1) {
+			System.out.println("정상가입됨");
+		}
+		else {
+			System.out.println("프로세스 오류임");
+		}
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//0912 MultipartFile mfile <view file name값이랑 맞추어야 됨 파라미터랑! >중요!
 	@PostMapping("/fileok.do")
 	public void upload(MultipartFile mfile,HttpServletRequest req , Model m) throws Exception{ //void라서 response 못씀 io라서 throws Exception씀
