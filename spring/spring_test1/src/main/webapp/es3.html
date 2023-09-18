@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA 1일차 -class 상속</title>
+</head>
+<body>
+
+</body>
+<script>
+	class box1{
+		abc(){
+			this.msg = "홍길동님 환영합니다.";
+			return this.msg;
+		}
+	}
+	//상속 클래스를 사용하여 출력하게 됩니다. 단 자바와 다르게 상속 하고자 하는 클래스를 먼저 선언 후 상속을 받아야 정상적으로 인식하여 출력
+	class box2 extends box1{
+		bbb(){
+			this.data =this.abc();
+			console.log(this.data);		
+		}
+		
+	}
+	
+	let aa = new box2();
+	aa.bbb();
+	
+	class calas{
+		plus_method(data, data2){
+			let sum1=0;
+			for(var a = data; a <= data2; a++){
+				sum1+=a;
+			}
+			this.sum2=sum1;
+			return this.sum2;
+		}
+	}
+	
+	class bbbox1 extends calas{
+		sum(){
+			this.data3=this.plus_method(1,5);
+			console.log(this.data3);
+		}
+	}
+	let ab = new bbbox1();
+	ab.sum();
+	
+	
+	class bbox{
+		constructor(z){    //즉시실행
+			console.log(z);
+		}
+	}
+	
+	var kk = new bbox("ECMA");
+	
+</script>
+</html>

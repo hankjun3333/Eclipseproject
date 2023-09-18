@@ -35,7 +35,6 @@ public class modifyok {
 			System.out.println("sql 문법오류");
 		}
 		
-		
 		return oksign;
 	}
 }

@@ -22,11 +22,103 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class webpage2 {
 	PrintWriter pw = null;
+	
+	@PostMapping("/air_personok.do")
+	public String air_personok(Model m,
+			@RequestParam String pid,
+			@RequestParam String pname,
+			@RequestParam String passport,
+			@RequestParam int ptel,
+			@RequestParam String acode,
+			@RequestParam String a_corp,
+			@RequestParam int pcount,
+			@RequestParam int totalprice
+			
+			) {
+		
+		air_list al = new air_list();
+		int result = al.insert(pid, pname, passport, ptel, acode, a_corp, pcount, totalprice);
+		if(result >0) {
+			System.out.println("저장잘됨");
+			m.addAttribute("msg","저장이 깔끔하게 되셨군요");
+		}
+		else {
+			m.addAttribute("msg","코드를 막짰군요!");
+		}
+		
+		return "/WEB-INF/viewpage/air_personok";
+	}
+	
+	//db정보 받아서 air_person.do에 출력해줌
+	@RequestMapping("/air_person.do")
+	public String air_person(HttpServletRequest req) {
+		
+		air_list al = new air_list();
+		req.setAttribute("al_list",al.select());
+		return "/WEB-INF/viewpage/air_person";
+	}
+	
+	//0918 스프링식 RequestParam
+	@PostMapping("air_reserveok.do")
+	public String reserve(Model m ,
+			@RequestParam String acode,
+			@RequestParam String a_corp,
+			@RequestParam String a_contry,
+			@RequestParam String a_sdate,
+			@RequestParam int a_avail,
+			@RequestParam int amoney,
+			@RequestParam String start_day,
+			@RequestParam String end_day
+			) {
+		simplify sp = new simplify();
+		
+		/* simplify 클래스를 활용해서 return 받아서 처리! */
+		a_sdate = sp.day(a_sdate);
+		start_day = sp.day(start_day);
+		end_day = sp.day(end_day);
+		
+		air_reserveok as = new air_reserveok();
+		int result = as.reserve_insert(acode, a_corp, a_contry, a_sdate, a_avail, amoney, start_day, end_day);
+		
+		if(result == 0) {
+			m.addAttribute("msg","비정상 데이터로 인하여 정보등록안됨");
+		}
+		else {
+			m.addAttribute("msg","성공적으로 데이터 입력됨");
+		}
+		/*
+		String acode = req.getParameter("acode");
+		String a_corp = req.getParameter("a_corp");
+		String a_contry = req.getParameter("a_contry");
+		String a_sdate = req.getParameter("a_sdate");
+		
+		int a_avail = Integer.parseInt(req.getParameter("a_avail"));
+		int amoney = Integer.parseInt(req.getParameter("amoney"));
+		String start_day = req.getParameter("start_day");
+		String end_day = req.getParameter("end_day");
+		
+		String a_sdate2 = a_sdate.replaceAll("T", " ");
+		String start_day2 = start_day.replaceAll("T", " ");
+		String end_day2 =end_day.replaceAll("T", " ");
+		air_reserveok re = new air_reserveok();
+		int result = re.reserve_insert(acode, a_corp, a_contry, a_sdate2,a_avail, amoney, start_day2, end_day2);
+		if(result > 0) {
+			System.out.println("저장됨");
+		}
+		else {
+			System.out.println("저장안됨!");
+		}
+		*/
+		
+		return "/WEB-INF/viewpage/air_reserveok";
+	}
+	
 	
 	//0914 로그인 api
 	@PostMapping("kakao_loginok.do")
@@ -58,21 +150,7 @@ public class webpage2 {
 		
 		return null;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	//0912 MultipartFile mfile <view file name값이랑 맞추어야 됨 파라미터랑! >중요!
 	@PostMapping("/fileok.do")
 	public void upload(MultipartFile mfile,HttpServletRequest req , Model m) throws Exception{ //void라서 response 못씀 io라서 throws Exception씀
