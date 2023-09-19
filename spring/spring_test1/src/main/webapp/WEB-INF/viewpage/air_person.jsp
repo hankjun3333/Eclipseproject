@@ -67,7 +67,9 @@ document.querySelector("#btn").addEventListener("click",function(){
 		alert("여권번호 입력바람");
 	}
 	else {
-		f.submit();
+		if(confirm("예약을 확정하시겠습니까?")){
+			f.submit();
+		}
 	}
 });
 </script>

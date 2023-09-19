@@ -28,7 +28,39 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class webpage2 {
 	PrintWriter pw = null;
+
+	@RequestMapping("air_list.do")
+	public String air_list(Model m) {
+		
+		air_list al = new air_list();
+		try {
+			//데이터 전체 리스트 view로 보내기!
+			List<ArrayList<String>> total_list = al.person_list();
+			m.addAttribute("total_list",total_list);
+			
+			//총 갯수값 view로 보내기!
+			int total_person = al.total_sum("air_person");
+			m.addAttribute("total_person",total_person);
+			
+		}
+		catch(Exception e) {
+			System.out.println("db문법오류");
+		}
+		return "/air_list";
+	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//0919
 	@PostMapping("/air_personok.do")
 	public String air_personok(Model m,
 			@RequestParam String pid,
@@ -39,19 +71,21 @@ public class webpage2 {
 			@RequestParam String a_corp,
 			@RequestParam int pcount,
 			@RequestParam int totalprice
-			
-			) {
-		
+			) throws Exception {
+		//simplify sp = new simplify();
+		//a_corp = a_corp.split();
 		air_list al = new air_list();
 		int result = al.insert(pid, pname, passport, ptel, acode, a_corp, pcount, totalprice);
-		if(result >0) {
+		if(result ==1) {
 			System.out.println("저장잘됨");
-			m.addAttribute("msg","저장이 깔끔하게 되셨군요");
+			m.addAttribute("msg","저장이 깔끔하게 되셨군요"); 
 		}
-		else {
+		else if(result==3){
 			m.addAttribute("msg","코드를 막짰군요!");
 		}
-		
+		else {
+			m.addAttribute("msg","result가 0이 나왔군요");
+		}
 		return "/WEB-INF/viewpage/air_personok";
 	}
 	
@@ -64,6 +98,8 @@ public class webpage2 {
 		return "/WEB-INF/viewpage/air_person";
 	}
 	
+	
+	
 	//0918 스프링식 RequestParam
 	@PostMapping("air_reserveok.do")
 	public String reserve(Model m ,
@@ -75,7 +111,7 @@ public class webpage2 {
 			@RequestParam int amoney,
 			@RequestParam String start_day,
 			@RequestParam String end_day
-			) {
+			) throws Exception {
 		simplify sp = new simplify();
 		
 		/* simplify 클래스를 활용해서 return 받아서 처리! */

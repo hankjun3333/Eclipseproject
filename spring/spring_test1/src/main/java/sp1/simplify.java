@@ -10,4 +10,12 @@ public class simplify {
 		val = val.replaceAll("T"," ");
 		return val;
 	}
+	public String split(String val) {
+		//ArrayList<String> ar = new ArrayList<String>(); 
+		String a[] = new String[3];
+		a = val.split("|");
+		val = a[1];
+		return val;
+		
+	}
 }

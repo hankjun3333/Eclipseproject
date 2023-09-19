@@ -23,8 +23,9 @@ public class air_reserveok {
 			int a_avail,
 			int amoney,
 			String start_day2,
-			String end_day2) {
+			String end_day2) throws Exception{
 		int oksign = 0;
+		this.con.setAutoCommit(false); //transaction 사용
 		try {
 		this.dbcon();
 		this.ps = con.prepareStatement("insert into air_reserve values('0',?,?,?,?,?,?,?,?,now())");
@@ -36,12 +37,14 @@ public class air_reserveok {
 		this.ps.setInt(6, amoney);
 		this.ps.setString(7, start_day2);
 		this.ps.setString(8, end_day2);
+		this.con.commit(); //완료
 		oksign = this.ps.executeUpdate();
 		this.ps.close();
 		this.con.close();
 		}
 		catch(Exception e) {
 			System.out.println(e);
+			this.con.rollback(); //입력사항 취소쉬킴
 		}
 		return oksign;
 	}
