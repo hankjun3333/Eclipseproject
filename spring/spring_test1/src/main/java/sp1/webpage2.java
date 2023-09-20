@@ -30,12 +30,25 @@ public class webpage2 {
 	PrintWriter pw = null;
 
 	@RequestMapping("air_list.do")
-	public String air_list(Model m) {
+	//required = false : GET,POST 해당 변수값에 값이 없을 경우 해당 요구사항을 예외처리 하게 됩니다.
+	//@RequestParam(required=false) 기본은 true인데
+	//page가 확인이 안되면 사용을 안하겠다 이런식으로 처리가능!!
+	public String air_list(Model m ,@RequestParam(required=false) String page) {
+		//System.out.println(page);
+		String p = page;
+		air_list al = new air_list(); //여기선 intern이 안먹는다 값을 받아야??사용가능?
+		int vpage = 0; //페이지 번호 1번일때 지정!
+		if(p==null || p == "null" || p.equals("1") || p == "") {
+			vpage = 0;
+		}
+		else { //1번 페이지 외에 작동 되는 부분
+			vpage =(Integer.parseInt(p) * 2)-2; //2n-2 ,3n-3 , 4n-4 2개/3개/4개씩출력
+			//10개씩출력하려면 10n-10
+		}
 		
-		air_list al = new air_list();
 		try {
 			//데이터 전체 리스트 view로 보내기!
-			List<ArrayList<String>> total_list = al.person_list();
+			List<ArrayList<String>> total_list = al.person_list(vpage);
 			m.addAttribute("total_list",total_list);
 			
 			//총 갯수값 view로 보내기!
@@ -48,18 +61,7 @@ public class webpage2 {
 		}
 		return "/air_list";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	//0919
 	@PostMapping("/air_personok.do")
 	public String air_personok(Model m,

@@ -42,23 +42,14 @@ public class air_list{
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	//페이징 출력!
-	protected List<ArrayList<String>> person_list() throws Exception{
+	protected List<ArrayList<String>> person_list(int vpage) throws Exception{
 		this.dbcon();
 		List<ArrayList<String>> all_data = new ArrayList<ArrayList<String>>();
 		try {
-			String sql = "select * from air_person order by pidx desc limit 4,2";
+			String sql = "select * from air_person order by pidx desc limit "+vpage+",2";
 			this.ps = this.con.prepareStatement(sql);
+			
 			ResultSet rs = this.ps.executeQuery();
 			dto_air da = new dto_air();
 			while(rs.next()) {

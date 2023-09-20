@@ -13,6 +13,7 @@
 <table border="1">
 <thead>
 <tr>
+<th>번호</th>
 <th>아이디</th>
 <th>고객명</th>
 <th>항공사</th>
@@ -21,14 +22,39 @@
 </tr>
 </thead>
 <tbody>
+<%
+int now_page=0;
+try{
+now_page = Integer.parseInt(request.getParameter("page"));
+//out.print(now_page);
+}
+catch(Exception e){
+	//out.print("페이지 번호 오류");
+}
+//try성공 -> finally 작동됨 / try실패 -> catch -> finally 작동됨
+finally{
+	if(now_page==0){
+		now_page=0;
+	}
+}
+out.print(now_page);
+
+
+%>
+<app:set var="now" value="<%=now_page%>"></app:set>
+
+<app:set var="w" value="${total_person-(now-1)*2}"></app:set>
+
 <app:forEach var="item" items="${total_list}">
 <tr>
+<td>${w}</td>
 <td>${item[1]}</td>
 <td>${item[2]}</td>
 <td>${item[6]}</td>
 <td>${item[7]}</td>
 <td>${item[3]}</td>
 </tr>
+<app:set var="w" value="${w-1}"></app:set>
 </app:forEach>
 </tbody>
 </table><br> <!-- end부분 ="${page+(1-(page%2))%1}" 나머지 값을 확인하여 올림형태로 만듬!-->
@@ -40,7 +66,19 @@
 </body>
 <script>
 function abc(pg){
-	alert(pg);
+	location.href="./air_list.do?page="+pg; //get으로 파라미터값 전달!
 }
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,6 +15,7 @@ ArrayList<ArrayList<String>> list = (ArrayList<ArrayList<String>>)request.getAtt
 <form id="f" method="post" action="air_personok.do" enctype="application/x-www-form-urlencoded">
 <input type="hidden" name="acode" value="">
 <input type="hidden" name="a_corp" value="">
+<input type="hidden" name="a_corp1" value="">
 <p>비행기 예매</p>
 <input type="text" name="pid" placeholder="아이디를 입력하세요"><br>
 <input type="text" name="pname" placeholder="고객명을 입력하세요"><br>
@@ -47,7 +48,7 @@ function data2(z){
 	var a = z.split("|");
 	//console.log(a[1]);
 	f.acode.value= a[0]; //비행기코드
-	f.a_corp.value= a[1]; //항공사명
+	f.a_corp1.value= a[1]; //항공사명
 	f.totalprice.value = a[2]; //총 금액
 	ori_money = a[2]; //1인기준금액
 	f.pcount.value = 1; //해당 항공사 변경시 인원 초기화

@@ -6,5 +6,4 @@
 
 	<bean id="/index.do" class="sp1.index">  
 	</bean>
-
 </beans>
