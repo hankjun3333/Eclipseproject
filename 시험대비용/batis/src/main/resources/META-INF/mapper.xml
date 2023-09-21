@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+namespace = 그룹 명
+namespace안에 id는 절대 중복되어서 안됨! 중복되는순간 에러뜸
+ -->
+
+<mapper namespace="reviewDB">
+<!-- 
+${}: 필드명, 테이블
+#{}: 값 rname="홍길동";
+parameterType : string , int , long..........
+resultType : select 문에서 만 사용! int,Integer,String,dto,vo,map로 가능
+-->
+<!-- limit 사용시  parameterType="int" 로 선언되어야 하고 -->
+<!-- 
+<select id="selectall" parameterType="int" resultType="Datavo">
+select * from review order by ridx desc limit #{ridx},2
+</select>
+ -->
+<select id="selectall" parameterType="int" resultType="Datavo">
+select * from review order by ridx desc
+</select>
+<!-- 내용 검색 
+mysql에서는 concat
+oracle에서는 rtext like '%' || #{value} || '%' 이렇게 씀
+mssql 에서는 rtext like '%' + #{value} + '%'
+
+-->
+<select id="selectsearch" parameterType="string" resultType="Datavo">
+select * from review where rtext like concat('%',#{value},'%') order by ridx desc
+</select>
+<!-- db에 컬럼명과 vo명이 같으므로 바로 입력이 가능함! -->
+
+<select id="counting" parameterType="string" resultType="string">
+select count(*) as ctn from review
+</select>
+
+<select id="selectone" parameterType="string" resultType="Datavo">
+select * from review where ridx=#{ridx}
+</select>
+
+<insert id="review_insert">
+insert into review values('0',#{rname},#{rpass},#{rtext},now())
+</insert>
+<!-- 삭제시 해당 컬럼명을 이용하여 사용함 dto,vo를 사용하지 않음! -->
+<delete id="review_delete">
+delete from review where ridx = #{ridx}
+</delete>
+
+<update id="review_update">
+update review set rtext = #{rtext}, rindate = now() where ridx = #{ridx}
+</update>
+
+<update id="review_use2">
+update review set ruse= #{ruse} where ridx=#{ridx}
+</update>
+
+
+</mapper>

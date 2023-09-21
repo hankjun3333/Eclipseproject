@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ECMA -submit + es7번대~</title>
+</head>
+<body>
+<form id="f" method="post" action="http://naver.com">
+아이디 : <input type="text" name="mid">
+<br><br>
+<input type="submit" value="로그인">
+</form>
+<br><br><br><br>
+<input type="button" value="출력" id="btn">
+<input type="button" value="출력" id="btn2">
+</body>
+
+<script>
+	
+	//ECMA return false 가 작동을 안함!!! es에서는 onsubmit을 안씀
+document.querySelector("#f").addEventListener("submit",function(z){
+	z.preventDefault(); //submit 전용 으로 return false 대신쓰는 거임!
+	if(f.mid.value==""){
+		alert("아이디를 입력하세요!");
+	}
+	else{
+		f.submit();
+	}
+});	
+	
+</script>
+<!-- type="module" 이라고 걸어 놓으면 es 7번대(별도 엔진필요없음!) 안걸으면 es 5 나 6 임 -->
+
+<script type="module">
+	//import는 js 파일을 로드하여 해당 함수 function만 가져올 수 있음 
+	//속도가 매우 빨라짐!!!!! - 백엔드는 속도도 고려해야함
+	//es 쓰면 필요한것만 가져오므로 속도가 매우빠름
+	import {abc,bbb} from "./ecma.js";
+	document.querySelector("#btn").addEventListener("click",function(){
+		abc(); //import 에서 가져온 이름에 대한 function명을 입력하면 로드가 됨
+	});
+		
+	document.querySelector("#btn2").addEventListener("click",function(){
+		bbb();
+	})
+</script>
+
+</html>

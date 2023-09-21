@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias = "Datavo" type="batis.datavo"/>
+		
+		<!-- 이런식으로 dto나 vo 더있으면 추가하면됨 
+		<typeAlias alias = "Datavo2" type="batis.datavo"/>
+		 -->
+	</typeAliases>
+</configuration>
+
